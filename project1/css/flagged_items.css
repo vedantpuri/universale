@@ -18,15 +18,19 @@ body {
   padding-right: 150px;
 }
 
-.img-fluid{
-  /* border-radius: 50%; */
-  display: block;
-  max-width: 450px;
-  max-height: 600px;
-  width: auto;
+.img-item {
+  width: 450px;
+  height: 100px;
   height: auto;
-  /* height: inherit; */
-  /* overflow: hidden; */
+  float: left;
+  margin: 3px;
+  padding: 3px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  max-height: 70%;
+  height: auto;
 }
 .pagination {
   margin-bottom: 15px;
