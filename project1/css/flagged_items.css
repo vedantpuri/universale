@@ -18,19 +18,14 @@ body {
   padding-right: 150px;
 }
 
-.img-item {
-  width: 450px;
-  height: 100px;
-  height: auto;
-  float: left;
-  margin: 3px;
-  padding: 3px;
-}
-
 .img-fluid {
-  max-width: 100%;
-  max-height: 70%;
-  height: auto;
+    position: relative;
+    float: left;
+    width:  350px;
+    height: 400px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
 }
 .pagination {
   margin-bottom: 15px;
