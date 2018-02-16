@@ -3,8 +3,9 @@ Welcome to the repository of CS326 Team H. For the semester project we plan on c
 The only pre-requisite to access the web app is to have a 5 college email ID.
 
 The UI includes :
-* Main page - Search Bar and Feed [Semi Private]
+* Landing page - Search Bar and Feed [Semi Private]  
 * Login Popup
 * Post-Login Page [Similar to main page but now displays details]
 * Profile Page
+* Flagged Items page
 * Chat Box {Optional}
