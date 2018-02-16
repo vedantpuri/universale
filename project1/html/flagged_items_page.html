@@ -15,6 +15,8 @@
     <!-- Custom styles for this template -->
     <link href="./../css/flagged_items.css" rel="stylesheet">
 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
   </head>
 
   <body>
@@ -26,6 +28,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <form method="get" action="/search" id="search">
+          <input name="q" type="text" size="40" placeholder="Search" />
+          <button class="icon" type="submit"><i class="fa fa-search"></i></button>
+        </form>
 
         <!-- insert another search bar here -->
 
@@ -59,9 +66,6 @@
     </div>
     <div style="clear:both"></div>
     <br>
-    <br>
-        <!-- </p> -->
-      <!-- </h2> -->
 
       <!-- Project One -->
       <div class="row">

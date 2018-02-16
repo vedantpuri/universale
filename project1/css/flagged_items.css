@@ -4,14 +4,20 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-1-col-portfolio/blob/master/LICENSE)
  */
 
+ /* Basic CSS */
+
 body {
   padding-top: 54px;
 }
 
 @media (min-width: 992px) {
   body {
-    padding-top: 56px;
+    padding-top: 70px;
   }
+}
+
+nav {
+  padding-bottom: 40px;
 }
 .row {
   padding-left: 150px;
@@ -31,9 +37,52 @@ body {
   margin-bottom: 15px;
 }
 
-#search-bar{
-  padding: 130px
+/*  Search bar main */
+#search {
+  padding-left: 200px;
 }
+
+#search input[type="text"] {
+    background: url(search-white.png) no-repeat 10px 6px #fcfcfc;
+    text-align: left;
+    font-size: 15px;
+    border: 1px solid #d1d1d1;
+    font: normal 12px Arial,Helvetica,Sans-serif;
+    color: #2F2F2F;
+    width: 200px;
+    height: 35px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#search input[type="text"]:focus {
+    width: 250px;
+    font-size: 15px;
+    color: #2F2F2F;
+    }
+
+.icon{
+      position: relative;
+      top: 50%;
+      margin-left: 0px;
+      margin-top: 0px;
+      z-index: 1;
+      color: white;
+      background-color: #343a40;
+      border: none;
+    }
+
+/* Star Rating CSS */
 
 .rating {
   unicode-bidi: bidi-override;
@@ -58,9 +107,15 @@ body {
    color: gold;
 }
 
+.rating > span:hover:after {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
+}
 
 
-
+/* Flagged Items Search Bar CSS */
 input {
 	outline: none;
 }
@@ -108,7 +163,7 @@ input::-webkit-input-placeholder {
 	color: #999;
 }
 
-/* Demo 2 */
+
 #demo-2 input[type=search] {
 	width: 15px;
 	padding-left: 10px;
@@ -139,9 +194,6 @@ h2, form {
 
 }
 
-/* .top-bar h2 {
-  display: inline;
-}
-.top-bar span {
-  float: right;
-} */
+
+
+/* Test rating */
