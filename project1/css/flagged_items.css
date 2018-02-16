@@ -13,11 +13,48 @@ body {
     padding-top: 56px;
   }
 }
+.row {
+  padding-left: 150px;
+  padding-right: 150px;
+}
 
+.img-fluid{
+  /* border-radius: 50%; */
+  display: block;
+  max-width: 450px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  /* height: inherit; */
+  /* overflow: hidden; */
+}
 .pagination {
   margin-bottom: 15px;
 }
 
 #search-bar{
   padding: 130px
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: left;
+  font-size: 25px
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
 }
