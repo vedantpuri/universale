@@ -17,3 +17,7 @@ body {
 .pagination {
   margin-bottom: 15px;
 }
+
+#search-bar{
+  padding: 130px
+}
