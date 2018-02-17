@@ -19,9 +19,10 @@ body {
 nav {
   padding-bottom: 40px;
 }
+
 .row {
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .img-fluid {
