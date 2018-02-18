@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Search Result</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="./../css/search_result.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./../css/search_result.css" rel="stylesheet">
+    <!-- Search icon logo -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <img class = "imgsize" src="./../mock-data/logo.jpeg">
+        <a class="navbar-brand" href="#">Free and For Sale</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <form method="get" action="/search" id="search">
+          <input name="q" type="text" size="40" placeholder="Game Console" />
+          <button class="icon" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">About Us
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Your Account</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="row">
+      <div class="col-3">
+        <h2 class = "filter">Seller's College</h2>
+
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Amherst College
+              <span class="badge badge-primary badge-pill">4</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center active">
+            Umass Amherst
+            <span class="badge badge-primary badge-pill">8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Mount Holyoke College
+            <span class="badge badge-primary badge-pill">1</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Hampshire College
+            <span class="badge badge-primary badge-pill">3</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Smith College
+            <span class="badge badge-primary badge-pill">5</span>
+          </li>
+        </ul>
+
+        <h2 class="filter">Price</h2>
+
+      <p class="price">from</p>
+
+
+      <input name="q" type="number" size="5" placeholder="0" />
+
+
+      <p class="price">to</p>
+
+      <input name="q" type="number" size="5" placeholder="500" />
+      <br>
+      <button type="button" class="btn btn-primary" id="filter-price">Go!</button>
+
+
+      </div>
+
+    <div class="col-9">
+
+      <div class="top-bar">
+      <!-- Page Heading -->
+      <h2 class="my-4">Search Result: Game Console</h2>
+    <br>
+
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+              <img class="img-fluid" src="./../mock-data/ps4.jpg" alt="Responsive image">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h5><i>Play Station 4 pro</i></h5>
+          <p>Ps4 pro works good just left front corner is bent up from dropping.Still works as it should<br><br>
+          Price: $300<br>
+          Seller Name: John Doe<br>
+          Seller College: UMass Amherst</p>
+          <p>
+            <red>230</red> Views
+            <br>
+            <red>2</red> Flagged
+          </p>
+          <a class="btn btn-primary" href="#">View Item</a>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Project Two -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="./../mock-data/ps3.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h5><i>Play Station 3</i></h5>
+          <p>150 gb Playstation 3 with a bunch of music on it comes with two games NBA 2K 12 Call of Duty ghosts two remotes HDMI cord and remote charger cord<br><br>
+          Price: $80 <br>
+          Seller Name: Will Sennot<br>
+          Seller College: UMass Amherst</p>
+          <p>
+            <red>331</red> Views
+            <br>
+            <red>5</red> Flagged
+          </p>
+          <a class="btn btn-primary" href="#">View Item</a>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Project Three -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid" src="./../mock-data/xbox.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h5><i>Xbox One S</i></h5>
+          <p>Just with remote no games great condo. Hit me<br><br>
+          Price: $100<br>
+          Seller Name: Vedika Seth <br>
+          Seller College: Umass Amherst</p>
+          <p>
+            <red>35</red> Views
+            <br>
+            <red>0</red> Flagged
+          </p>
+          <a class="btn btn-primary" href="#">View Item</a>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Project Four -->
+      <div class="row">
+
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="./../mock-data/switch.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h5><i>Nintendo Switch</i></h5>
+          <p>Nintendo Switch, original packaging and accessories. Also includes insignia carrying case with game slots, as well as a power cube extender. Comes with the legend of Zelda game<br><br>
+          Price: $250 <br>
+          Seller Name: Thaine Smith<br>
+          Seller College: Umass Amherst</p>
+          <p>
+            <red>563</red> Views
+            <br>
+            <red>6</red> Flagged
+          </p>
+          <a class="btn btn-primary" href="#">View Item</a>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Pagination -->
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">4</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Free and For Sale 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+  </body>
+
+</html>
