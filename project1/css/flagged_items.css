@@ -21,8 +21,12 @@ nav {
 }
 
 .row {
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+.col-md-7 {
+  width: 350px;
+  height: 350px;
 }
 
 .img-fluid {
@@ -30,9 +34,9 @@ nav {
     float: left;
     width:  350px;
     height: 350px;
-    background-position: 50% 50%;
-    background-repeat:   no-repeat;
-    background-size:     cover;
+    /* background-position: 50% 50%; */
+    /* background-repeat:   no-repeat; */
+    /* background-size:     cover; */
 }
 .pagination {
   margin-bottom: 15px;
@@ -194,7 +198,3 @@ h2, form {
   padding: 20px;
 
 }
-
-
-
-/* Test rating */
