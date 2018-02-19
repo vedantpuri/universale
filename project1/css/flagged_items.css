@@ -20,6 +20,13 @@ nav {
   padding-bottom: 40px;
 }
 
+.imgsize{
+  width: 60px;
+  height: 60px;
+  margin-left: -150px;
+  margin-right: 20px;
+}
+
 .row {
   padding-left: 75px;
   padding-right: 75px;
