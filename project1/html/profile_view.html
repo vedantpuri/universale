@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Social User Profile Page in HTML5/CSS3[DEMO]</title>
+	<link rel="stylesheet" type="text/css" href="../css/profile_view.css" />
+</head>
+
+<body>	
+	<header>
+		<div class="wrapper">
+			<a href="#"><img src="../mock-data/Logo.jpeg" alt="mysquare logo" title="mysquare - checkin and go home!" /></a>
+			<span id="usernav"><a href="#">Logout</a> - <a href="#">Settings</a> - <a href="#">My Profile<span><img src="../mock-data/user_avatar_s.jpg" /></span></a></span>
+		</div>
+	</header>
+	
+	<nav>
+		<ul id="n" class="clearfix">
+			<li><a href="#">Homepage</a></li>
+			<li class="sel"><a href="#">Profile</a></li>
+			<li><a href="#">Flagged Items</a></li>
+			<li><a href="#">Search</a></li>
+			<li><a href="#">Find People</a></li>
+			<li><a href="#">Current Listings</a></li>
+		</ul>
+	</nav>
+	
+	<div id="content" class="clearfix">
+		<section id="left">
+			<div id="userStats" class="clearfix">
+				<div class="pic">
+					<a href="#"><img src="../mock-data/user_avatar.jpg" width="150" height="150" /></a>
+				</div>
+				
+				<div class="data">
+					<h1>Johnny Appleseed</h1>
+					<h3>Amherst, MA</h3>
+					<h4><a href="http://spyrestudios.com/"></a></h4>
+					<div class="socialMediaLinks">
+						<a href="http://twitter.com/jakerocheleau" rel="me" target="_blank"><img src="../mock-data/twitter.png" alt="@jakerocheleau" /></a>
+						<a href="http://gowalla.com/users/JakeRocheleau" rel="me" target="_blank"><img src="../mock-data/gowalla.png" /></a>
+					</div>
+					<div class="sep"></div>
+					<ul class="numbers clearfix">
+						<li>Profile Views<strong>185</strong></li>
+						<li>Items Sold<strong>344</strong></li>
+						<li class="nobrdr">Items Bought<strong>127</strong></li>
+					</ul>
+				</div>
+			</div>
+			
+			<h1>About Me:</h1>
+			<p>Hi all, my name is Johnny. I'm a computer science major at UMass. I'm currently in the middle of moving from one apartment to another so I defintely have a lot of stuff to sell. Likewise, I'm also looking for new items that could help beutify my new apartment. 
+
+			I'm highly cooperative and would love to communicate with those interested. My phone number is 555-555-5555. Feel free to contact me at any time. I can respond over text and call. 
+
+			</p>
+		</section>
+		
+		<section id="right">
+			<div class="gcontent">
+				<div class="head"><h1>Badges(3)</h1></div>
+				<div class="boxy">
+					<p>More stars, more badges !!</p>
+					
+					<div class="badgeCount">
+						<a href="#"><img src="../mock-data/foursquare-badge.png" /></a>
+						<a href="#"><img src="../mock-data/foursquare-badge.png" /></a>
+						<a href="#"><img src="../mock-data/foursquare-badge.png" /></a>
+					</div>
+					
+					<span><a href="#">See all…</a></span>
+				</div>
+			</div>
+			
+			<div class="gcontent">
+				<div class="head"><h1>People Searched</h1></div>
+				<div class="boxy">
+					<p> </p>
+					
+					<div class="friendslist clearfix">
+						<div class="friend">
+							<a href="#"><img src="../mock-data/friend_avatar_default.jpg" width="30" height="30" alt="Jerry K." /></a><span class="friendly"><a href="#">Jerry K.</a></span>
+						</div>
+						
+						<div class="friend">
+							<a href="#"><img src="../mock-data/friend_avatar_default.jpg" width="30" height="30" alt="Katie F." /></a><span class="friendly"><a href="#">Katie F.</a></span>
+						</div>
+						
+						<div class="friend">
+							<a href="#"><img src="../mock-data/friend_avatar_default.jpg" width="30" height="30" alt="Ash K." /></a><span class="friendly"><a href="#">Ash K.</a></span>
+						</div>
+						
+						<div class="friend">
+							<a href="#"><img src="../mock-data/friend_avatar_default.jpg" width="30" height="30" alt="Sponge B." /></a><span class="friendly"><a href="#">Sponge B.</a></span>
+						</div>
+						
+						<div class="friend">
+							<a href="#"><img src="../mock-data/friend_avatar_default.jpg" width="30" height="30" alt="Frank" /></a><span class="friendly"><a href="#">Frank</a></span>
+						</div>
+						
+						<div class="friend">
+							<a href="#"><img src="../mock-data/friend_avatar_default.jpg" width="30" height="30" alt="Alexa S." /></a><span class="friendly"><a href="#">Alexa S.</a></span>
+						</div>
+					</div>
+					
+					<span><a href="#">See all...</a></span>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
