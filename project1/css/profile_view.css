@@ -22,7 +22,7 @@ h4 { color: #232323; font-family: Arial, Tahoma, sans-serif; font-size: 1.1em; l
 /* @group core */
 .wrapper { width: 850px; overflow: hidden; margin: 0 auto; background: none; }
 
-header { height: 100px; background-color: #343a40; }
+header { height: 100px; background-color: black; }
 
 header #usernav { float: right; line-height: 100px; font-size: 14px; font-weight: bold; color: #333; }
 header #usernav a { color: white;  }
