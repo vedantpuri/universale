@@ -16,7 +16,7 @@ header.masthead {
   position: relative;
   background-color: #343a40;
   filter: brightness(50%);
-  background: url("../img/logo.jpeg") no-repeat center center;
+  background: url("./../../mock-data/bg-masthead.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
