@@ -34,8 +34,8 @@ header i {
 @media (max-width:800px) {
   header {
     height: 150px;
-  } 
-  
+  }
+
   header i {
     right: -90%;
   }
@@ -75,7 +75,7 @@ main {
   .active {
     right: calc(50% - 60px);
     top: 50px;
-  } 
+  }
 }
 
 .name {
@@ -97,7 +97,7 @@ main {
 .stats {
   margin-top: 25px;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #ededed;
   font-family: 'Montserrat', sans-serif;
 }
@@ -105,7 +105,7 @@ main {
 
 .number-stat {
   padding: 0px;
-  font-size: 14pt;
+  font-size: 50pt;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
   color: #aaa;
@@ -163,7 +163,7 @@ main {
   color: #888;
 }
 
-.nav li:hover, .nav li:nth-child(1)  { 
+.nav li:hover, .nav li:nth-child(1)  {
   color: #999;
   border-bottom: 2px solid #999;
 }
@@ -190,7 +190,7 @@ main {
   .nav {
     display: none;
   }
-  
+
   .follow {
     width: 50%;
     margin-left: 25%;
@@ -209,8 +209,12 @@ main {
 
 .gallery img {
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
-  width: auto; 
+  width: auto;
   height: auto;
   cursor: pointer;
   max-width: 100%;
+}
+
+.checked {
+    color: orange;
 }
