@@ -151,6 +151,7 @@ main {
 
 .nav {
   display: inline-flex;
+  padding-bottom: 30px;
 }
 
 .nav li {
