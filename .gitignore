@@ -1,2 +1,4 @@
 OS junk files
 *.DS_Store
+*.pyc
+__pycache__/
