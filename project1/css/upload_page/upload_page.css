@@ -41,7 +41,9 @@ nav {
 }
 
 #foot{
-position:fixed;
+position:relative;
+margin-top:10px;
 bottom:0px;
 width:100%;
+display: grid;
 }
