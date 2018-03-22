@@ -25,29 +25,53 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <img class = "imgsize" src="./../mock-data/logo.jpeg">
-        <a class="navbar-brand" href="#">Free and For Sale</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <a class="navbar-brand" href="index.html">
+            <img class = "imgsize" src="./../mock-data/logo.jpeg">
+            Free and For Sale
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <form method="get" action="/search" id="search">
-          <input name="q" type="text" size="40" placeholder="Game Console" />
-          <button class="icon" type="submit"><i class="fa fa-search"></i></button>
-        </form>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+              <ul class="navbar-nav m-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html">
+                        <i class="fa fa-home"></i>Home
+                      </a>
+                  </li>
+                  <li class="nav-item active">
+                      <a class="nav-link" href="product.html">
+                        Upload Product
+                       <!-- <span class="sr-only">(current)</span></a> -->
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="cart.html">
+                        Flagged Items<i class="fa fa-flag"></i>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Your Profile</a>
+                  </li>
+              </ul>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">About Us
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Your Account</a>
-            </li>
-          </ul>
-        </div>
+              <form class="form-inline my-2 my-lg-0">
+                  <div class="input-group input-group-sm">
+                      <input type="text" class="form-control" placeholder="Search...">
+                      <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary btn-number">
+                              <i class="fa fa-search"></i>
+                          </button>
+                      </div>
+                  </div>
+                  <a class="btn btn-success btn-sm ml-3" style="color=blue" href="cart.html">
+                      <i class="fa fa-user"></i> Sign-in/Register
+                      <!-- <span class="badge badge-light">3</span> -->
+                  </a>
+              </form>
+
+          </div>
       </div>
     </nav>
 

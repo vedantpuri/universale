@@ -24,9 +24,11 @@ nav {
 .imgsize{
   width: 60px;
   height: 60px;
-  margin-left: -150px;
-  margin-right: 20px;
+  margin-left: 0px;
+  margin-right: 5px;
+  border-radius: 50%;
 }
+
 
 .row {
   padding-left: 75px;
@@ -50,50 +52,6 @@ nav {
   margin-bottom: 15px;
 }
 
-/*  Search bar main */
-#search {
-  padding-left: 200px;
-}
-
-#search input[type="text"] {
-    background: url(search-white.png) no-repeat 10px 6px #fcfcfc;
-    text-align: left;
-    font-size: 15px;
-    border: 1px solid #d1d1d1;
-    font: normal 12px Arial,Helvetica,Sans-serif;
-    color: #2F2F2F;
-    width: 200px;
-    height: 35px;
-    padding: 6px 15px 6px 35px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
-    -webkit-transition: all 0.7s ease 0s;
-    -moz-transition: all 0.7s ease 0s;
-    -o-transition: all 0.7s ease 0s;
-    transition: all 0.7s ease 0s;
-    }
-
-#search input[type="text"]:focus {
-    width: 250px;
-    font-size: 15px;
-    color: #2F2F2F;
-    }
-
-.icon{
-      position: relative;
-      top: 50%;
-      margin-left: 0px;
-      margin-top: 0px;
-      z-index: 1;
-      color: white;
-      background-color: #343a40;
-      border: none;
-    }
 
 /* Star Rating CSS */
 
