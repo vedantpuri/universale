@@ -62,3 +62,11 @@ footer a {
 .btn btn-success btn-sm ml-3 {
     color: blue;
 }
+
+.imgsize{
+  width: 60px;
+  height: 60px;
+  margin-left: 0px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
