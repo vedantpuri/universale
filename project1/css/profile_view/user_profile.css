@@ -2,12 +2,6 @@ body {
   padding-top: 54px;
 }
 
-@media (min-width: 992px) {
-  body {
-    padding-top: 70px;
-  }
-}
-
 nav {
   padding-bottom: 40px;
   background-color: teal;
@@ -19,6 +13,11 @@ nav {
   margin-left: 0px;
   margin-right: 5px;
   border-radius: 50%;
+}
+
+#fbimg{
+  height: 25px;
+  width: 25px;
 }
 
 #foot{
