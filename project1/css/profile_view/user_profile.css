@@ -1,0 +1,30 @@
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 70px;
+  }
+}
+
+nav {
+  padding-bottom: 40px;
+  background-color: teal;
+}
+
+.imgsize{
+  width: 60px;
+  height: 60px;
+  margin-left: 0px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+#foot{
+position:relative;
+margin-top:10px;
+bottom:0px;
+width:100%;
+display: grid;
+}
