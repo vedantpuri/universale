@@ -112,7 +112,33 @@
 
 </div>
   <h2>Products for Sale</h2>
-  <!-- Project Two -->
+  {% for product in products %}
+  <div class="row">
+    <div class="col-md-7">
+      <a href="#">
+        <img class="img-fluid rounded mb-3 mb-md-0" src="./../mock-data/ps3.jpg" alt="">
+      </a>
+    </div>
+    <div class="col-md-5">
+      <h5><i>Play Station 3</i></h5>
+      <p>150 gb Playstation 3 with a bunch of music on it comes with two games NBA 2K 12 Call of Duty ghosts two remotes HDMI cord and remote charger cord<br><br>
+      Price: $80 <br>
+      Seller Name: Will Sennot<br>
+      Seller College: UMass Amherst</p>
+      <p>
+        <red>331</red> Views
+        <br>
+        <red>5</red> Flagged
+      </p>
+      <a class="btn btn-primary" href="#">View Item</a>
+    </div>
+  </div>
+  <hr>
+  {% endfor %}
+
+
+
+  
   <div class="row">
     <div class="col-md-7">
       <a href="#">

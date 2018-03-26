@@ -19,12 +19,14 @@ def user_view(request):
 	bio = user.bio
 	image = user.image
 	email = user.email
+	products = user.product_set.all()
 	context = {
 		'fname': fname,
 		'lname': lname,
 		# 'college': college,
 		# 'bio': bio
 		'image' : image,
-		'email' : email
+		'email' : email,
+		'products': products
 	}
 	return render(request, 'user.html', context)
