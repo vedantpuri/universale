@@ -15,6 +15,32 @@ nav {
   border-radius: 50%;
 }
 
+.user-image{
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin-left: 42%
+}
+
+.img-fluid {
+    position: relative;
+    float: left;
+    width:  350px;
+    height: 350px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+#name{
+
+
+}
+
+#college{
+
+}
+
 #fbimg{
   height: 25px;
   width: 25px;
