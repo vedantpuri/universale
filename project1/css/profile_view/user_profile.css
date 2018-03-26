@@ -19,7 +19,7 @@ nav {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  margin-left: 42%
+  /* margin-left: 42% */
 }
 
 .img-fluid {
@@ -32,6 +32,9 @@ nav {
     background-size:     cover;
 }
 
+#profile{
+  margin-left: 45px
+}
 
 #fbimg{
   height: 25px;
