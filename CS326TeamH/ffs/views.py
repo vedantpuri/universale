@@ -20,6 +20,7 @@ def user_view(request):
 	image = user.image
 	email = user.email
 	products = user.product_set.all()
+	count = products.count()
 	context = {
 		'fname': fname,
 		'lname': lname,
@@ -27,6 +28,7 @@ def user_view(request):
 		# 'bio': bio
 		'image' : image,
 		'email' : email,
-		'products': products
+		'products': products,
+		'count': count
 	}
 	return render(request, 'user.html', context)
