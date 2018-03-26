@@ -20,12 +20,13 @@ def user_view(request):
 	image = user.image
 	email = user.email
 	products = user.product_set.all()
+	college = user.get_college_display()
 	count = products.count()
 	context = {
 		'fname': fname,
 		'lname': lname,
-		# 'college': college,
-		# 'bio': bio
+		'college': college,
+		'bio': bio,
 		'image' : image,
 		'email' : email,
 		'products': products,
