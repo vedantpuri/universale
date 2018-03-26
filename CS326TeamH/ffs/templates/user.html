@@ -66,49 +66,60 @@
 {%block content%}
 <br>
 <br>
+
+
+
 <div class="row">
 <div class="col-2">
 </div>
+
 <div class="col-8 text-center">
-<div class="row">
+<div id="profile" class="row">
 <br>
-    <div class="span12" id="content"><div id="details" class="span7">
-      <div class="row">
-        <div class="container">
+
+    <div class="span12" id="content">
+
 <div class="row">
+  <div class="col-12 text-center">
   <img class="user-image" src={{image.url}}>
 </div>
-
+<br>
+  <div class="col-12">
   <h1 id="name">{{fname}} {{lname}}</h1>
-  <br>
    <h2 id="college">{{ college }}</h2>
-
- <div class="row">
-   <div class="col-4">
+ </div>
+ <br>
+   <div class="col-3">
 
  Items for Sale
  <br>
  <a href="http://google.com">{{ count }}</a>
 </div>
- <div class="col-4">
+<div class="col-3">
+
+Rating
+<br>
+★★★★✩ 4.3
+</div>
+ <div class="col-3">
    <a href="http://facebook.com/jakerocheleau" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/facebook_icon.png' %}" alt="@jakerocheleau"></a>
  </div>
-   <div class="col-4">
+   <div class="col-3">
    <a href="mailto:{{email}}" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/mail.png' %}" alt="@jakerocheleau"></a>
  </div>
- </div>
-</div>
-</div>
-</div>
 
+<div class='col-12'>
 <hr>
 <h2>About me</h2>
-<text>Hi all, my name is Johnny. I'm a computer science major at UMass. I'm currently in the middle of moving from one apartment to another so I defintely have a lot of stuff to sell. Likewise, I'm also looking for new items that could help beutify my new apartment. I'm highly cooperative and would love to communicate with those interested. My phone number is 413-409-2374. Feel free to contact me at any time. I can respond over text and call.</text>
+<text>{{bio}}</text>
 <br>
-<br>
+
 <hr>
+</div>
+</div>
 
 </div>
+
 
 </div>
   <h2>Products for Sale</h2>
