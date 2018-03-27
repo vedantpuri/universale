@@ -1,0 +1,184 @@
+/*!
+ * Start Bootstrap - 1 Col Portfolio (https://startbootstrap.com/template-overviews/1-col-portfolio)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-1-col-portfolio/blob/master/LICENSE)
+ */
+
+ /* Basic CSS */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 70px;
+  }
+}
+
+nav {
+  padding-bottom: 40px;
+}
+
+.row {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.img-fluid {
+    position: relative;
+    float: left;
+    width:  350px;
+    height: 350px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+.pagination {
+  margin-bottom: 15px;
+}
+
+/* Star Rating CSS */
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: left;
+  font-size: 25px
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
+}
+
+.rating > span:hover:after {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
+}
+
+
+/* Flagged Items Search Bar CSS */
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none;
+}
+
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: #66CC75;
+
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+
+#demo-2 input[type=search] {
+	width: 15px;
+	padding-left: 10px;
+	color: transparent;
+	cursor: pointer;
+}
+#demo-2 input[type=search]:hover {
+	background-color: #fff;
+}
+#demo-2 input[type=search]:focus {
+	width: 130px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
+}
+#demo-2 input:-moz-placeholder {
+	color: transparent;
+}
+#demo-2 input::-webkit-input-placeholder {
+	color: transparent;
+}
+
+h2, form {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 20px;
+
+}
+
+.imgsize{
+  width: 60px;
+  height: 60px;
+  margin-left: 0px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.filter {
+  margin-top: 100px;
+  margin-bottom: -20px;
+  margin-left: -20px;
+
+}
+
+.my-4 {
+  margin-left: 50px;
+}
+
+#filter-price {
+  margin-top:10px;
+}
+
+red {
+  color: #007BFF;
+}
+
+
+
+
+
+/* Test rating */

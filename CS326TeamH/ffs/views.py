@@ -35,3 +35,15 @@ def user_view(request):
 		'star': star
 	}
 	return render(request, 'user.html', context)
+
+def search_view(request):
+	queryset = Product.objects.filter(title__icontains='textbook')
+	
+	print(len(queryset))
+
+	context = {
+		'object_list' : queryset
+	}
+
+	return render(request, 'search_result_page.html', context)
+

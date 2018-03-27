@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+
+<!-- {% load static %} -->
+{%block styles%}
+<!-- Bootstrap core CSS -->
+<link href="/static/css/search_result.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="/static/css/search_result.css" rel="stylesheet">
+<!-- Search icon logo -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+{%endblock%}
+{% load static from staticfiles %}
+<!-- <link rel="stylesheet" href="{% static 'css/user_profile.css' %}"> -->
+
+
+
+  {%block content%}
+  
+    <div class="col-9">
+
+      <div class="top-bar">
+      <!-- Page Heading -->
+      <h2 class="my-4">Search Result: Textbook</h2>
+    <br>
+
+{% for obj in object_list %}
+ <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+              <img class="img-fluid" src="{{obj.image.url}}" alt="Responsive image">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h5><i>{{ obj.title }}</i></h5>
+          <p>{{ obj.description }}<br><br>
+          Price: ${{ obj.price }}<br>
+          Seller Name: {{ obj.owner.first_name }} {{ obj.owner.last_name }}<br>
+          Seller College: {{ obj.owner.get_college_display }}<br>
+          Seller Contact Email:   {{ obj.owner.email }}<br>
+          Status:  {{ obj.get_status_display }}
+        </p>
+          <p>
+            <red>230</red> Views
+            <br>
+            <red>2</red> Flagged
+          </p>
+          <a class="btn btn-primary" href="#">View Item</a>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+{% endfor %}
+      
+ 
+   
+
+      <!-- Pagination -->
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">4</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+    <!-- /.container -->
+
+{% endblock %}
+
+</html>
