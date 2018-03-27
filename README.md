@@ -25,6 +25,3 @@ Besides being a project for a compsci class, there was another underlying motiva
 
 ## License
 The project is available under the [MIT](https://github.com/vedantpuri/ffs-web/blob/master/LICENSE) license.
-
-Write up for the 2nd part:
-https://docs.google.com/document/d/1PNLPYcw2r7slVhiF-LaDy8hW62cO0wssUejHHGZqFX4/edit?usp=sharing
