@@ -53,7 +53,6 @@ def flagged_view(request):
 	lst = []
 	for i in flagged:
 		if i.user.email == 'sthapar@umass.edu':
-			print(i.products)
 			lst += [j for j in i.products.all()]
 	context = {
 			'object_list' : lst
