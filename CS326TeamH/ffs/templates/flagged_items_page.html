@@ -12,11 +12,20 @@
 
   {%block content%}
 
-    <div class="">
+    <div class="container">
 
       <div class="top-bar">
-
-      <h2 class="my-4">Your Flagged Items</h2><br>
+      <!-- Page Heading -->
+      <h2 class="my-4">Your Flagged Items</h2>
+        <!-- <p id="search-bar"> -->
+      <span>
+      <form id="demo-2">
+          <input type="search" placeholder="Search">
+      </form>
+    </span>
+    </div>
+    <div style="clear:both"></div>
+    <br>
 
 {% for obj in object_list %}
 
@@ -41,7 +50,8 @@
               <span>☆</span>
             </div>
           </p>
-          <a class="btn btn-primary" href="#">View Item</a>
+          <a class="btn btn-primary" href="#">View Seller</a>
+          <a class="btn btn-primary" href="#">Unflag Item</a>
         </div>
       </div>
 
