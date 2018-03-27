@@ -99,7 +99,17 @@
 
 Rating
 <br>
-★★★★✩ 4.3
+<script>
+var star = {{ star }};
+  for(i = 0; i < 5; i++){
+    if(star>=i){
+      document.write("★");
+    }
+    else{
+      document.write("✩");
+    }
+}
+</script>
 </div>
  <div class="col-3">
    <a href="http://facebook.com/jakerocheleau" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/facebook_icon.png' %}" alt="@jakerocheleau"></a>
