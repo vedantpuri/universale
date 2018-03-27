@@ -56,7 +56,10 @@ def flagged_view(request):
 			'object_list' : lst
 			}
 	return render(request, 'flagged_items_page.html', context)
-
+def landing_view(request):
+ 	return render(request, 'landing-page.html', context={})
+def upload_view(request):
+ 	return render(request, 'upload_page.html', context={})
 
 	
 

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+
+<!-- {% load static %} -->
+{%block styles%}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="/static/css/upload_page.css" rel="stylesheet">
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+{%endblock%}
+{% load static from staticfiles %}
+<!-- <link rel="stylesheet" href="{% static 'css/user_profile.css' %}"> -->
+
+
+
+  {%block content%}
+
+    <div class="top-bar">
+      <h1 class="my-4" style="margin-left:40%">Post Your Item</h1>
+    </div>
+
+  <form class="needs-validation" novalidate>
+  <div class="form-row">
+    <div class="col-md-2 mb-3">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label>Item Name</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="Item Name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label>Upload Item Image</label>
+      <input type="file" id="imgInp">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-2 mb-3">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label>Item Description</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-2 mb-3">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">Price($)</label>
+      <input type="text" class="form-control" id="validationCustom04" placeholder="Price" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-2 mb-3">
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="exampleSelect1">Category</label>
+      <select class="form-control">
+        <option>Books</option>
+        <option>Furniture</option>
+        <option>Electronics</option>
+        <option>Housing</option>
+        <option>Vedio Gaming</option>
+        <option>Phones</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check" style="margin-left:17%">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit" style="margin-left:17%">Post</button>
+</form>
+    
+
+{% endblock %}
