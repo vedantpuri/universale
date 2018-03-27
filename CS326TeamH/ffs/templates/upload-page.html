@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 
 
-<!-- {% load static %} -->
 {%block styles%}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="/static/css/upload_page.css" rel="stylesheet">
-    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="/static/css/upload_page.css" rel="stylesheet">
+<link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 {%endblock%}
-{% load static from staticfiles %}
-<!-- <link rel="stylesheet" href="{% static 'css/user_profile.css' %}"> -->
 
+{% load static from staticfiles %}
 
 
   {%block content%}
@@ -75,6 +73,6 @@
   </div>
   <button class="btn btn-primary" type="submit" style="margin-left:17%">Post</button>
 </form>
-    
+
 
 {% endblock %}

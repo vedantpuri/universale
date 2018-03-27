@@ -22,23 +22,22 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{% url 'home' %}">
                       <i class="fa fa-home"></i>Home
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="product.html">
+                    <a class="nav-link" href="{% url 'upload' %}">
                       Upload Product
-                     <!-- <span class="sr-only">(current)</span></a> -->
                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.html">
+                    <a class="nav-link" href="{% url 'flag' %}">
                       Flagged Items<i class="fa fa-flag"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Your Profile</a>
+                    <a class="nav-link" href="{% url 'user' %}">Your Profile</a>
                 </li>
             </ul>
 
@@ -53,7 +52,6 @@
                 </div>
                 <a class="btn btn-success btn-sm ml-3" style="color=blue" href="cart.html">
                     <i class="fa fa-user"></i> Sign-in/Register
-                    <!-- <span class="badge badge-light">3</span> -->
                 </a>
             </form>
 

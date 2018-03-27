@@ -9,9 +9,9 @@ from ffs.views import upload_view
 
 urlpatterns = [
 	path('products/', product_list_view),
-	path('user/', user_view),
+	path('user/', user_view, name='user'),
 	path('search/', search_view),
-	path('flagged/', flagged_view),
-	path('upload/', upload_view),
-	path('', landing_view),
+	path('flagged/', flagged_view, name='flag'),
+	path('upload/', upload_view, name='upload'),
+	path('', landing_view, name='home'),
 ]
