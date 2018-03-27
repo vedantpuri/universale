@@ -39,9 +39,20 @@ def user_view(request):
 
 def search_view(request):
 	queryset = Product.objects.filter(title__icontains='textbook')
+	flagged = Flag.objects.all()
+	lst = []
+
+	for i in queryset:
+		ctr = 0
+		title = i.title
+		for j in flagged:
+			tmp = j.products.all()
+			if len(tmp)>0 and tmp[0].title == title:			
+				ctr += 1
+		lst.append(ctr)
 
 	context = {
-		'object_list' : queryset
+		'object_list' : zip(queryset, lst)
 	}
 
 	return render(request, 'search_result_page.html', context)
