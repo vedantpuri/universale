@@ -11,15 +11,15 @@
 {% load static from staticfiles %}
 
   {%block content%}
-    <!-- Page Content -->
+
     <div class="">
 
       <div class="top-bar">
-      <!-- Page Heading -->
+
       <h2 class="my-4">Your Flagged Items</h2><br>
 
 {% for obj in object_list %}
-      <!-- Project One -->
+
       <div class="row">
         <div class="col-md-7">
           <a href="#">
@@ -44,12 +44,12 @@
           <a class="btn btn-primary" href="#">View Item</a>
         </div>
       </div>
-      <!-- /.row -->
+
 
       <hr>
 {% endfor %}
 
-      <!-- Pagination -->
+
       <ul class="pagination justify-content-center">
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Previous">
@@ -75,13 +75,5 @@
       </ul>
 
     </div>
-    <!-- /.container -->
-
-    <!-- Footer -->
-
-  </body>
-
+  
 {% endblock %}
-
-
-</html>
