@@ -1,0 +1,10 @@
+{% for obj in object_list %}
+{{ obj.title }}<br/>
+{{ obj.description }}<br/>
+{{ obj.price }}<br/>
+{{ obj.owner.first_name }}<br/>
+
+	<img src='{{obj.image.url}}' >
+		
+	</img><br/>
+{% endfor %}

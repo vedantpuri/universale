@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from ffs.models import Product
 from ffs.models import User
+from ffs.models import Flag
 # Create your views here.
 def product_list_view(request):
 	queryset = Product.objects.filter(title__icontains='textbook')
@@ -46,4 +47,24 @@ def search_view(request):
 	}
 
 	return render(request, 'search_result_page.html', context)
+
+def flagged_view(request):
+	flagged = Flag.objects.all()
+	ctr = 0
+	lst = []
+	for i in flagged:
+		if i.user.email == 'sthapar@umass.edu':
+			print(i.products)
+			lst += [j for j in i.products.all()]
+	print(lst)
+	context = {
+			'object_list' : lst
+			}
+
+
+	return render(request, 'flagged_items_page.html', context)
+
+
+	
+
 
