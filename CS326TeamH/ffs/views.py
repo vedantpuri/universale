@@ -59,7 +59,7 @@ def flagged_view(request):
 def landing_view(request):
  	return render(request, 'landing-page.html', context={})
 def upload_view(request):
- 	return render(request, 'upload_page.html', context={})
+ 	return render(request, 'upload-page.html', context={})
 
 	
 
