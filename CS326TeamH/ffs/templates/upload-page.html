@@ -7,7 +7,7 @@
 <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 {%endblock%}
 
-{% load static from staticfiles %}
+{% load static %}
 
 
   {%block content%}
@@ -15,7 +15,7 @@
     <div class="top-bar">
       <h1 class="my-4" style="margin-left:40%">Post Your Item</h1>
     </div>
-
+<div id="my-form">
   <form class="needs-validation" novalidate>
   <div class="form-row">
     <div class="col-md-2 mb-3">
@@ -73,6 +73,7 @@
   </div>
   <button class="btn btn-primary" type="submit" style="margin-left:17%">Post</button>
 </form>
+</div>
 
 
 {% endblock %}

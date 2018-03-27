@@ -13,6 +13,10 @@ nav {
   background-color: teal;
 }
 
+#my-form{
+padding-bottom: 200px
+}
+
 .imgsize{
   width: 60px;
   height: 60px;
@@ -41,9 +45,10 @@ nav {
 }
 
 #foot{
-position:relative;
+position:fixed;
 margin-top:10px;
 bottom:0px;
 width:100%;
+height: auto;
 display: grid;
 }
