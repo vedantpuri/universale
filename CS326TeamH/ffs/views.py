@@ -39,8 +39,6 @@ def user_view(request):
 
 def search_view(request):
 	queryset = Product.objects.filter(title__icontains='textbook')
-	
-	print(len(queryset))
 
 	context = {
 		'object_list' : queryset
@@ -57,8 +55,6 @@ def flagged_view(request):
 	context = {
 			'object_list' : lst
 			}
-
-
 	return render(request, 'flagged_items_page.html', context)
 
 
