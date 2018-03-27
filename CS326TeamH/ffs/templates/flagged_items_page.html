@@ -1,10 +1,13 @@
-{% for obj in object_list %}
-{{ obj.title }}<br/>
-{{ obj.description }}<br/>
-{{ obj.price }}<br/>
-{{ obj.owner.first_name }}<br/>
+{% extends "base.html" %}
 
-	<img src='{{obj.image.url}}' >
-		
-	</img><br/>
-{% endfor %}
+    {%block styles%}
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/flagged_items.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/flagged_items.css" rel="stylesheet">
+    <!-- Search icon logo -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    {%endblock%}
+{% load static from staticfiles %}
+
+</html>
