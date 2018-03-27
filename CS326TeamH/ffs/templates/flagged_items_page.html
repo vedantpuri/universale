@@ -18,6 +18,37 @@
       <!-- Page Heading -->
       <h2 class="my-4">Your Flagged Items</h2><br>
 
+{% for obj in object_list %}
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+             <img class="img-fluid" src="{{obj.image.url}}" alt="Responsive image">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h5><i>{{ obj.title }}</i></h5><br>
+          <p>{{ obj.description }}<br><br>
+          Price: ${{ obj.price }}<br>
+          Seller Name: {{ obj.owner.first_name }} {{ obj.owner.last_name }}<br>
+          Seller College: {{ obj.owner.get_college_display }}</p>
+          <p>Rate this seller:
+            <div class="rating">
+              <span>☆</span>
+              <span>☆</span>
+              <span>☆</span>
+              <span>☆</span>
+              <span>☆</span>
+            </div>
+          </p>
+          <a class="btn btn-primary" href="#">View Item</a>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+{% endfor %}
+
       <!-- Pagination -->
       <ul class="pagination justify-content-center">
         <li class="page-item">
