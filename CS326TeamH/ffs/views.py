@@ -47,7 +47,7 @@ def search_view(request):
 		title = i.title
 		for j in flagged:
 			tmp = j.products.all()
-			if len(tmp)>0 and tmp[0].title == title:			
+			if len(tmp)>0 and tmp[0].title == title:
 				ctr += 1
 		lst.append(ctr)
 
@@ -71,7 +71,3 @@ def landing_view(request):
  	return render(request, 'landing-page.html', context={})
 def upload_view(request):
  	return render(request, 'upload-page.html', context={})
-
-	
-
-
