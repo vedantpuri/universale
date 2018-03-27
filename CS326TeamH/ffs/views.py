@@ -50,13 +50,11 @@ def search_view(request):
 
 def flagged_view(request):
 	flagged = Flag.objects.all()
-	ctr = 0
 	lst = []
 	for i in flagged:
 		if i.user.email == 'sthapar@umass.edu':
 			print(i.products)
 			lst += [j for j in i.products.all()]
-	print(lst)
 	context = {
 			'object_list' : lst
 			}
