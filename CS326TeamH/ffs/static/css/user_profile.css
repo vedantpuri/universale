@@ -31,44 +31,38 @@ nav {
     background-size:     cover;
 }
 
-.star-rating {
-        unicode-bidi: bidi-override;
-        color: #ddd;
-        font-size: 0;
-        height: 25px;
-        margin: 0 auto;
-        position: relative;
-        display: table;
-        padding: 0;
-        text-shadow: 0px 1px 0 #a2a2a2;
-    }
+/* Star Rating CSS */
 
-    .star-rating span {
-        padding: 5px;
-        font-size: 20px;
-    }
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: left;
+  font-size: 25px
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent;
+}
 
-    .star-rating span:after {
-        content: "★";
-    }
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
+}
 
-    .star-rating-top {
-        color: #FFD700;
-        padding: 0;
-        position: absolute;
-        z-index: 1;
-        display: block;
-        top: 0;
-        left: 0;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    .star-rating-bottom {
-        padding: 0;
-        display: block;
-        z-index: 0;
-    }
+.rating > span:hover:after {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
+}
 
 #fbimg{
   height: 25px;
