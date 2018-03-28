@@ -9,7 +9,6 @@ The only pre-requisite to access the web app is to have a 5 college email ID.
 * Search Results Page
 * Profile View Page
 * Profile Edit Page
-* Item View Page
 * Item Upload Page
 * Flagged Items page
 
