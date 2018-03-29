@@ -80,7 +80,7 @@ var star = {{ star }};
 
 </div>
   <h2>Products for Sale</h2>
-  {% for product in products %}
+  {% for product, flag in products %}
   <div class="row">
     <div class="col-md-7">
       <a href="#">
@@ -97,16 +97,7 @@ var star = {{ star }};
       Price: ${{product.price}} <br>
       </p>
       <p>
-        <red>5</red> Flagged
-      </p>
-      <p>Rate this seller:
-        <div class="rating">
-          <span>☆</span>
-          <span>☆</span>
-          <span>☆</span>
-          <span>☆</span>
-          <span>☆</span>
-        </div>
+        <red>{{ flag }}</red> Flagged
       </p>
       <a class="btn btn-primary" href="#">View Item</a>
       <a class="btn btn-primary" href="#">Flag Item</a>

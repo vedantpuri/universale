@@ -24,6 +24,17 @@ def user_view(request):
 	college = user.get_college_display()
 	count = products.count()
 	star = user.star_count
+	flagged = Flag.objects.all()
+	lst = []
+
+	for i in products:
+		ctr = 0
+		title = i.title
+		for j in flagged:
+			tmp = j.products.all()
+			if len(tmp)>0 and tmp[0].title == title:
+				ctr += 1
+		lst.append(ctr)
 	context = {
 		'fname': fname,
 		'lname': lname,
@@ -31,7 +42,7 @@ def user_view(request):
 		'bio': bio,
 		'image' : image,
 		'email' : email,
-		'products': products,
+		'products': zip(products, lst),
 		'count': count,
 		'star': star
 	}
