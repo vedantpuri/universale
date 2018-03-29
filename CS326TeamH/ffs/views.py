@@ -71,11 +71,21 @@ def search_view(request):
 def flagged_view(request):
 	flagged = Flag.objects.all()
 	lst = []
+	ctr_lst = []
 	for i in flagged:
 		if i.user.email == 'sthapar@umass.edu':
 			lst += [j for j in i.products.all()]
+	for i in lst:
+		ctr = 0
+		title = i.title
+		for j in flagged:
+			tmp = j.products.all()
+			if len(tmp)>0 and tmp[0].title == title:
+				ctr += 1
+		ctr_lst.append(ctr)
+
 	context = {
-			'object_list' : lst
+			'object_list' : zip(lst, ctr_lst)
 			}
 	return render(request, 'flagged_items_page.html', context)
 def landing_view(request):
