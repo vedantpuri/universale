@@ -8,7 +8,6 @@ from ffs.views import landing_view
 from ffs.views import upload_view
 
 urlpatterns = [
-	path('products/', product_list_view),
 	path('user/', user_view, name='user'),
 	path('search/', search_view, name='search'),
 	path('flagged/', flagged_view, name='flag'),
