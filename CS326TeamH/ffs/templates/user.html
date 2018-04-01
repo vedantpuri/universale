@@ -40,7 +40,7 @@
 
  Items for Sale
  <br>
- <a href="http://google.com">{{ count }}</a>
+ <a href="#count_target">{{ count }}</a>
 </div>
 <div class="col-3">
 
@@ -63,12 +63,16 @@ var star = {{ star }};
  </div>
    <div class="col-3">
    <a href="mailto:{{email}}" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/mail.png' %}" alt="@jakerocheleau"></a>
+   <!-- target to when user clicks on the count in the top bar. Hope to show products when clicked -->
+   <a name="count_target"></a>
  </div>
 
 <div class='col-12'>
 <hr>
+
 <h2>About me</h2>
 <text>{{bio}}</text>
+
 <br>
 
 <hr>
@@ -79,6 +83,7 @@ var star = {{ star }};
 
 
 </div>
+
   <h2>Products for Sale</h2>
   {% for product, flag in products %}
   <div class="row">
