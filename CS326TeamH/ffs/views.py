@@ -94,29 +94,25 @@ def landing_view(request):
 
 
 
-#
-# from django.shortcuts import get_object_or_404
-# from django.http import HttpResponseRedirect
-# from django.urls import reverse
-# from .forms import UploadProductForm
-# def upload_view(request):
-# 	form = UploadProductForm(request.POST)
-# 	return render(request, 'upload-page.html', {'form': form})
 
-#
 # from django.shortcuts import get_object_or_404
 # from django.http import HttpResponseRedirect
 # from django.urls import reverse
+
 from .forms import UploadProductForm
 def upload_view(request):
-    # form = UploadProductForm(request.POST)
-    if request.method == "POST":
-        form = UploadProductForm(request.POST)
-        product_instance = form.save(commit=False)
-        print(product_instance.description)
-        # redirect link here
-        # include popup here
-    else:
-        form = UploadProductForm(request.GET)
+	if request.method == "POST":
+		form = UploadProductForm(request.POST, request.FILES)
+		if form.is_valid():
+			product_instance = form.save(commit=False)
+			# replace this line with logged in user
+			product_owner = User.objects.get(email='samuelljackson@umass.edu')
+			product_instance.owner = product_owner
+			print(product_instance.description)
+			product_instance.save()
 
-    return render(request, 'upload-page.html', {'form': form})
+			# redirect link here
+	else:
+		form = UploadProductForm()
+
+	return render(request, 'upload-page.html', {'form': form})
