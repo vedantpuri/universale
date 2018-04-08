@@ -102,7 +102,7 @@ def landing_view(request):
 from .forms import UploadProductForm
 def upload_view(request):
 	if request.method == "POST":
-		form = UploadProductForm(request.POST)
+		form = UploadProductForm(request.POST, request.FILES)
 		if form.is_valid():
 			product_instance = form.save(commit=False)
 			# replace this line with logged in user

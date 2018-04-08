@@ -16,7 +16,7 @@ class UploadProductForm(ModelForm):
    title = forms.CharField(label='Item Name', max_length=100, required=True)
    description = forms.CharField(widget=forms.Textarea, min_length=10)
    price = forms.IntegerField(min_value=0, required=True)
-   # item_image = forms.File(required=True)
+   # item_image = forms.FileField(required=True)
    class Meta:
        model = Product
        fields = ['title', 'description', 'price', 'image']
