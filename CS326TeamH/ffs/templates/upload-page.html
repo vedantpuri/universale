@@ -12,7 +12,7 @@
 
   {%block content%}
 
-    <div class="top-bar">
+    <!-- <div class="top-bar">
       <h1 class="my-4" style="margin-left:40%">Post Your Item</h1>
     </div>
 <div id="my-form">
@@ -73,7 +73,17 @@
   </div>
   <button class="btn btn-primary" type="submit" style="margin-left:17%">Post</button>
 </form>
-</div>
-
+</div> -->
+<br>
+<br>
+<br>
+<br>
+<form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form }}
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
 
 {% endblock %}

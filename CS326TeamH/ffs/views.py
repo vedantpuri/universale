@@ -88,7 +88,17 @@ def flagged_view(request):
 			'object_list' : zip(lst, ctr_lst)
 			}
 	return render(request, 'flagged_items_page.html', context)
+
 def landing_view(request):
  	return render(request, 'landing-page.html', context={})
+
+
+
+#
+# from django.shortcuts import get_object_or_404
+# from django.http import HttpResponseRedirect
+# from django.urls import reverse
+from .forms import UploadProductForm
 def upload_view(request):
- 	return render(request, 'upload-page.html', context={})
+	form = UploadProductForm(request.POST)
+	return render(request, 'upload-page.html', {'form': form})
