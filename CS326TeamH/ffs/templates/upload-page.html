@@ -22,7 +22,7 @@
     </div>
     <div class="col-md-4 mb-3">
       <label>Item Name</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="Item Name">
+      {{form.item_name}}
     </div>
     <div class="col-md-4 mb-3">
       <label>Upload Item Image</label>
@@ -34,7 +34,7 @@
     </div>
     <div class="col-md-6 mb-3">
       <label>Item Description</label>
-      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+      {{form.item_description}}
     </div>
   </div>
   <div class="form-row">
@@ -42,22 +42,7 @@
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationCustom04">Price($)</label>
-      <input type="text" class="form-control" id="validationCustom04" placeholder="Price" required>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-2 mb-3">
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="exampleSelect1">Category</label>
-      <select class="form-control">
-        <option>Books</option>
-        <option>Furniture</option>
-        <option>Electronics</option>
-        <option>Housing</option>
-        <option>Vedio Gaming</option>
-        <option>Phones</option>
-      </select>
+      {{form.marked_price}}
     </div>
   </div>
   <div class="form-group">
@@ -71,19 +56,40 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit" style="margin-left:17%">Post</button>
+  <input type="submit" value="Submit" />
+   <button class="btn btn-primary" type="submit" style="margin-left:17%">Post</button>
 </form>
 </div> -->
+
 <br>
 <br>
-<br>
-<br>
-<form action="" method="post">
-        {% csrf_token %}
-        <table>
-        {{ form }}
-        </table>
-        <input type="submit" value="Submit" />
-    </form>
+<div class="top-bar">
+  <h1 class="my-4" style="margin-left:40%">Post Your Item</h1>
+</div>
+<div class="row">
+<div class="col-2">
+</div>
+<div class="col-8">
+{% load widget_tweaks %}
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+  {% endfor %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+      {% render_field field class="form-control" %}
+    </div>
+  {% endfor %}
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<div class="col-2">
+</div>
+</div>
 
 {% endblock %}
