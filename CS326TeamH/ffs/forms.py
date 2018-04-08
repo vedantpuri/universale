@@ -13,7 +13,7 @@ from ffs.models import Product
 from django.core.exceptions import ValidationError
 
 class UploadProductForm(ModelForm):
-   title = forms.CharField(label='Item Name', min_length=5, max_length=100, required=True)
+   title = forms.CharField(label='Item Name', min_length=5, max_length=100, required=True, help_text='Should be more than 5 characters and less than 100 characters')
    description = forms.CharField(widget=forms.Textarea, min_length=10)
    price = forms.IntegerField(min_value=0, required=True)
    # image = forms.ImageField(required=True)
