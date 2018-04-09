@@ -124,6 +124,7 @@ def edit_profile_view(request):
 	college = user.get_college_display()
 	if request.method == "POST":
 		form = EditProfileForm(request.POST, request.FILES, instance=user)
+		form.fields['email'].widget.attrs['placeholder'] = User.email
 		if form.is_valid():
 			product_instance.save()
 			# redirect link here
