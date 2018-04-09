@@ -23,6 +23,11 @@ class UploadProductForm(ModelForm):
        fields = ['title', 'description', 'price', 'image']
 
 class EditProfileForm(ModelForm):
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.first_name}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.last_name}))
+    #bio = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.bio}))
+    #college = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.last_name}))
+
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'bio', 'college', 'image', 'password']
+        fields = ['first_name', 'last_name', 'bio', 'college', 'image']
