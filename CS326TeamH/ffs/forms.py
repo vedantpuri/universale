@@ -26,7 +26,7 @@ class EditProfileForm(ModelForm):
     #first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.first_name}))
     #last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.last_name}))
     #bio = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.bio}))
-    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.email}))
+    # email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.email}))
     #college = forms.CharField(widget=forms.TextInput(attrs={'placeholder': User.last_name}))
 
     class Meta:

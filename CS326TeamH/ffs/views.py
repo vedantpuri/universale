@@ -122,13 +122,13 @@ def edit_profile_view(request):
 	# form = EditProfileForm(request.POST, request.FILES)
 	user = User.objects.get(email='samuelljackson@umass.edu')
 	college = user.get_college_display()
+	# form = EditProfileForm(user)
 	if request.method == "POST":
-		form = EditProfileForm(request.POST, request.FILES, instance=user)
-		form.fields['email'].widget.attrs['placeholder'] = User.email
+		form = EditProfileForm(request.POST, request.FILES)
 		if form.is_valid():
 			product_instance.save()
 			# redirect link here
 	else:
-		form = EditProfileForm()
+		form = EditProfileForm(instance=user)
 
 	return render(request, 'user_edit.html', {'form': form, 'user': user, 'user_college': college})
