@@ -1,0 +1,8 @@
+{% load widget_tweaks %}
+<form method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+  <table border="1">
+    {{ form }}
+  </table>
+  <button type="submit">Submit</button>
+</form>

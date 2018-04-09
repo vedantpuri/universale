@@ -10,6 +10,7 @@
 from django import forms
 from django.forms import ModelForm
 from ffs.models import Product
+from ffs.models import User
 from django.core.exceptions import ValidationError
 
 class UploadProductForm(ModelForm):
@@ -20,3 +21,8 @@ class UploadProductForm(ModelForm):
    class Meta:
        model = Product
        fields = ['title', 'description', 'price', 'image']
+
+class EditProfileForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'bio', 'college', 'image', 'password']

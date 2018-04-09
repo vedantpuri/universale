@@ -116,3 +116,8 @@ def upload_view(request):
 		form = UploadProductForm()
 
 	return render(request, 'upload-page.html', {'form': form})
+
+from .forms import EditProfileForm
+def edit_profile_view(request):
+	form = EditProfileForm(request.POST, request.FILES)
+	return render(request, 'user_edit.html', {'form': form})
