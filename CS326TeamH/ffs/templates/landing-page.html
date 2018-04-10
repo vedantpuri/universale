@@ -1,17 +1,6 @@
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Landing Page</title>
-    {% load static %}
-    <!-- Bootstrap core CSS -->
+{%block styles%}
     <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -21,48 +10,14 @@
 
     <!-- Custom styles for this template -->
     <link href="/static/css/landing-page.min.css" rel="stylesheet">
+{%endblock%}
 
-  </head>
+{% load static from staticfiles %}
+<!-- <link rel="stylesheet" href="{% static 'css/user_profile.css' %}"> -->
 
-  <body>
+{% block logo %}{% endblock %}
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    		<div class="container">
-    				<a class="navbar-brand" href="{% url 'home' %}">
-    					Free and For Sale
-    				</a>
-    				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    						<span class="navbar-toggler-icon"></span>
-    				</button>
-
-    				<div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-    						<ul class="navbar-nav m-auto">
-    								<li class="nav-item active">
-    										<a class="nav-link" href="{% url 'home' %}">
-    											<i class="fa fa-home"></i>Home
-    										</a>
-    								</li>
-    								<li class="nav-item">
-    										<a class="nav-link" href="{% url 'upload' %}">
-    											Upload Product
-    									 </a>
-    								</li>
-    								<li class="nav-item">
-    										<a class="nav-link" href="{% url 'flag' %}">
-    											Flagged Items<i class="fa fa-flag"></i>
-    										</a>
-    								</li>
-    								<li class="nav-item">
-    										<a class="nav-link" href="{% url 'user' %}">Your Profile</a>
-    								</li>
-    						</ul>
-    								<a class="btn btn-success btn-sm ml-3" style="color=blue" href="cart.html">
-    										<i class="fa fa-user"></i> Sign-in/Register
-    								</a>
-    				</div>
-    		</div>
-    </nav>
+  {%block content%}
 
     <!-- Masthead<h1 class="mb-5">Buy and Sell!</h1> -->
     <header class="masthead text-white text-center">
@@ -198,20 +153,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Free and For Sale 2018</p>
-        <p class="m-0 text-center text-white">
-           <a href="https://github.com/vedantpuri/ffs-web">View us on github <i class="fa fa-github"></i></a>
-         </p>
-      </div>
-      <!-- /.container -->
-    </footer>
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  </body>
 
-</html>
+{% endblock %}

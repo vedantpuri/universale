@@ -12,7 +12,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{% url 'home' %}">
-          <img class = "imgsize" src="{% static 'img/logo.jpeg' %}"></img>
+          {% block logo %}<img class = "imgsize" src="{% static 'img/logo.jpeg' %}"></img>{% endblock %}
           Free and For Sale
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
