@@ -2,6 +2,9 @@ from django.shortcuts import render
 from ffs.models import Product
 from ffs.models import User
 from ffs.models import Flag
+
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def product_list_view(request):
 	queryset = Product.objects.filter(title__icontains='textbook')
@@ -12,6 +15,7 @@ def product_list_view(request):
 
 	return render(request, 'details.html', context)
 
+@login_required(login_url="/accounts/login/")
 def user_view(request):
 	user = User.objects.get(email='samuelljackson@umass.edu')
 	fname = user.first_name
@@ -68,6 +72,7 @@ def search_view(request):
 
 	return render(request, 'search_result_page.html', context)
 
+@login_required(login_url="/accounts/login/")
 def flagged_view(request):
 	flagged = Flag.objects.all()
 	lst = []
@@ -99,7 +104,10 @@ def landing_view(request):
 # from django.http import HttpResponseRedirect
 # from django.urls import reverse
 
+
+
 from .forms import UploadProductForm
+@login_required(login_url="/accounts/login/")
 def upload_view(request):
 	if request.method == "POST":
 		form = UploadProductForm(request.POST, request.FILES)
@@ -118,6 +126,7 @@ def upload_view(request):
 	return render(request, 'upload-page.html', {'form': form})
 
 from .forms import EditProfileForm
+@login_required(login_url="/accounts/login/")
 def edit_profile_view(request):
 	# form = EditProfileForm(request.POST, request.FILES)
 	user = User.objects.get(email='samuelljackson@umass.edu')
