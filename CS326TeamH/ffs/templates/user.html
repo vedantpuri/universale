@@ -8,7 +8,13 @@
 <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!-- <link rel="stylesheet" href="{% static 'css/user_profile.css' %}"> -->
 {%endblock%}
+
 {% load static from staticfiles %}
+{% block edit %}
+  <a class="btn btn-success btn-sm ml-3" style="color=blue" href="{% url 'user_edit' %}">
+    <i class="fa fa-user"></i> Edit Profile
+  </a>
+{% endblock %}
 
 {%block content%}
 <br>

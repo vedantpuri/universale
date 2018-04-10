@@ -8,9 +8,14 @@
 {%endblock%}
 
 {% load static %}
-
+{% block edit %}
+  <a class="btn btn-danger btn-sm ml-3" href="{% url 'user_edit' %}">
+    <i class="fa fa-user"></i> Log Out
+  </a>
+{% endblock %}
 
   {%block content%}
+  <br>
   <br>
   <br>
 <div class="row">
