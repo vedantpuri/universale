@@ -42,6 +42,7 @@
             </ul>
 
             <form class="form-inline my-2 my-lg-0">
+              {% block search %}
                 <div class="input-group input-group-sm">
                     <input type="text" class="form-control" placeholder="Search...">
                     <div class="input-group-append">
@@ -50,6 +51,7 @@
                         <!-- </button> -->
                     </div>
                 </div>
+                {% endblock %}
                 {% block edit %}
                 <a class="btn btn-success btn-sm ml-3" style="color=blue" href="cart.html">
                     <i class="fa fa-user"></i> Sign-in/Register
