@@ -1,8 +1,27 @@
 body {
   font: 100% / 1.414 "Open Sans", "Roboto", arial, sans-serif;
-  background: #e9e9e9;
+  background: #07c7cf;
+}
+#holder {
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	height:10px;
+	width:100%;
 }
 
+#header2 {
+  padding-left: 40px;
+}
+
+#button {
+  background-color: #343a40;
+}
+
+#login_card {
+  background-color: #ffff;
+
+}
 a,
 [type="submit"] {
   -webkit-transition: all .25s ease-in;
@@ -41,7 +60,7 @@ a,
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.76);
+  background-color: #343a40;
 }
 
 .container__child {
@@ -61,10 +80,7 @@ a,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://image.freepik.com/free-vector/black-background-with-dots-and-lights_1035-6358.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
+  background: #ffff;
 }
 
 .thumbnail__logo,
@@ -120,7 +136,7 @@ h2 {
   color: #fff;
 }
 .thumbnail__links a:focus, .thumbnail__links a:hover {
-  color: rgba(255, 255, 255, 0.5);
+  color: #07c7cf;
 }
 
 .signup__form {
