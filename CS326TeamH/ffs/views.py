@@ -75,11 +75,13 @@ def search_view(request):
 
 @login_required(login_url="/accounts/login/")
 def flagged_view(request):
+	current_user = request.user.user
+
 	flagged = Flag.objects.all()
 	lst = []
 	ctr_lst = []
 	for i in flagged:
-		if i.user.email == 'sthapar@umass.edu':
+		if i.user.email == current_user.email:
 			lst += [j for j in i.products.all()]
 	for i in lst:
 		ctr = 0
