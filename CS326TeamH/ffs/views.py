@@ -17,10 +17,11 @@ def product_list_view(request):
 
 @login_required(login_url="/accounts/login/")
 def user_view(request):
-	user = User.objects.get(email='samuelljackson@umass.edu')
+	print("Current User", request.user.user)
+	user = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
 	fname = user.first_name
 	lname = user.last_name
-	# college = user.get_College()
+	
 	bio = user.bio
 	image = user.image
 	email = user.email
@@ -114,7 +115,7 @@ def upload_view(request):
 		if form.is_valid():
 			product_instance = form.save(commit=False)
 			# replace this line with logged in user
-			product_owner = User.objects.get(email='samuelljackson@umass.edu')
+			product_owner = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
 			product_instance.owner = product_owner
 			print(product_instance.description)
 			product_instance.save()
@@ -129,7 +130,8 @@ from .forms import EditProfileForm
 @login_required(login_url="/accounts/login/")
 def edit_profile_view(request):
 	# form = EditProfileForm(request.POST, request.FILES)
-	user = User.objects.get(email='samuelljackson@umass.edu')
+
+	user = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
 	college = user.get_college_display()
 	form = EditProfileForm(instance=user)
 	if request.method == 'POST':
