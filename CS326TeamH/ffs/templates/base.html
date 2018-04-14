@@ -41,12 +41,13 @@
                 </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0" method='GET' action='{% url 'search' %}'>
               {% block search %}
                 <div class="input-group input-group-sm">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" name='q' placeholder="Search...">
                     <div class="input-group-append">
-                            <a class="btn btn-block btn-lg btn-primary" href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+                        <input type='submit' value='Search' />
+                        <!-- <a class="btn btn-block btn-lg btn-primary" href="{% url 'search' %}"><i class="fa fa-search"></i></a> -->
                     </div>
                 </div>
                 {% endblock %}

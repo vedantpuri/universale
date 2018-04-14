@@ -21,7 +21,7 @@ def user_view(request):
 	user = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
 	fname = user.first_name
 	lname = user.last_name
-	
+
 	bio = user.bio
 	image = user.image
 	email = user.email
@@ -54,7 +54,8 @@ def user_view(request):
 	return render(request, 'user.html', context)
 
 def search_view(request):
-	queryset = Product.objects.filter(title__icontains='textbook')
+	query = request.GET.get("q")
+	queryset = Product.objects.filter(title__icontains=query)
 	flagged = Flag.objects.all()
 	lst = []
 
