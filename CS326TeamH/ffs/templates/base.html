@@ -8,7 +8,7 @@
   {% block styles %}<!-- Styles for every page might vary-->{% endblock %}
 </head>
 
-<body>
+  <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{% url 'home' %}">
@@ -44,9 +44,9 @@
             <form class="form-inline my-2 my-lg-0" method='GET' action='{% url 'search' %}'>
               {% block search %}
                 <div class="input-group input-group-sm">
-                    <input type="text" class="form-control" name='q' placeholder="Search...">
+                    <input type="text" class="form-control" name='q' placeholder="Search..." value={{entered_text}}>
                     <div class="input-group-append">
-                        <button class="fa fa-search" type='submit' value='Search' />
+                        <button class="btn btn-block btn-lg btn-primary" type='submit' value='Search' ><i class="fa fa-search"></i></button>
                         <!-- <a class="btn btn-block btn-lg btn-primary" href="{% url 'search' %}"><i class="fa fa-search"></i></a> -->
                     </div>
                 </div>
@@ -68,7 +68,9 @@
 
   {% block content %}<!-- default content text (typically empty) -->{% endblock %}
 
+  {% block footer %}
   <footer id="foot" class="py-5 bg-dark" style="position: static">
+  {% endblock %}
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Free and For Sale 2018</p>
       <p class="m-0 text-center text-white">

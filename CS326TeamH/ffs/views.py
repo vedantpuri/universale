@@ -69,7 +69,8 @@ def search_view(request):
 		lst.append(ctr)
 
 	context = {
-		'object_list' : zip(queryset, lst)
+		'object_list' : zip(queryset, lst),
+		'entered_text': query
 	}
 
 	return render(request, 'search_result_page.html', context)

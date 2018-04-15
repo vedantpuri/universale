@@ -16,12 +16,12 @@
 
 
   {%block content%}
-
+    <div  style="min-height:603px">
     <div class="container">
 
       <div class="top-bar">
       <!-- Page Heading -->
-      <h2 class="my-4">Search Result:</h2>
+      <h2 class="my-4">Search Result: {{entered_text}}</h2>
     <br>
 
 {% for obj1, obj2 in object_list %}
@@ -100,6 +100,11 @@
     </div>
   </div>
 </div>
+</div>
     <!-- /.container -->
 
+{% endblock %}
+
+{% block footer %}
+<footer id="foot" class="py-5 bg-dark" style="position:static;bottom:0;width:100%">
 {% endblock %}
