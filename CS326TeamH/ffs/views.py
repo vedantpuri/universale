@@ -2,6 +2,7 @@ from django.shortcuts import render
 from ffs.models import Product
 from ffs.models import User
 from ffs.models import Flag
+from django.http import HttpResponseRedirect
 
 from django.contrib.auth.decorators import login_required
 
@@ -124,6 +125,7 @@ def upload_view(request):
 			product_instance.owner = product_owner
 			print(product_instance.description)
 			product_instance.save()
+			return HttpResponseRedirect("../user/")
 
 			# redirect link here
 	else:
