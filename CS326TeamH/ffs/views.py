@@ -70,6 +70,7 @@ def search_view(request):
 
 	context = {
 		'object_list' : zip(queryset, lst),
+		'check': queryset,
 		'entered_text': query
 	}
 
