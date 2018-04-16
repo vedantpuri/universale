@@ -125,7 +125,7 @@ def upload_view(request):
 			product_instance.owner = product_owner
 			print(product_instance.description)
 			product_instance.save()
-			return HttpResponseRedirect("../user/")
+			return HttpResponseRedirect("../user/?success")
 
 			# redirect link here
 	else:
