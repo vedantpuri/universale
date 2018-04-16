@@ -23,7 +23,7 @@
 </div>
 <div class="col-8">
 {% load widget_tweaks %}
-<form method="post" enctype="multipart/form-data" novalidate>
+<form method="post" enctype="multipart/form-data" autocomplete="off" novalidate>
   {% csrf_token %}
 
   {% for hidden_field in form.hidden_fields %}
