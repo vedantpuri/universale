@@ -125,8 +125,13 @@ var star = {{ star }};
       <p>
         <red>{{ flag }}</red> Flagged
       </p>
-      <a class="btn btn-primary" href="#">View Item</a>
-      <a class="btn btn-primary" href="#">Flag Item</a>
+      <!-- <a class="btn btn-primary" href="#">View Item</a>
+      <a class="btn btn-primary" href="#">Flag Item</a> -->
+      <form action="add/" method="post">
+        <!-- <input type='submit' name='view_item' value='View Item'> -->
+        <input type='hidden' name='product_title' value={{ product.title }}/>
+        <button type='submit' class="btn btn-success">Flag Item</button>
+      </form>
     </div>
   </div>
   <hr>

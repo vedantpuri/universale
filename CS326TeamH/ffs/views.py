@@ -105,20 +105,13 @@ def flagged_view(request):
 @csrf_exempt
 @login_required(login_url="/accounts/login/")
 def add_to_flagged(request):
-	current_user = request.user.user
-	flag_obj = Flag.objects.create(user=current_user)
-	# form = MyForm(request.POST)
-	# print(form['product_title'].value)
-	# print(request.POST.get("product_title", ""))
-	if 'product_title' in request.POST:
-		# print('askjhdfkljahflasdjfladsjfasdlkfjdsaklfjasdk')
-		# print(request.POST.get("product_title", ""))
-		queryset = Product.objects.filter(title__icontains=request.POST.get("product_title", ""))
-		print(queryset)
-		p = queryset.first()
-		flag_obj = Flag.objects.create(user=current_user, products=p)
-		Flag.add(flag_obj)
 
+	if request.method == 'POST':
+		print(request.POST)
+		current_user = request.user.user
+		flag_obj = Flag.objects.create(user=current_user)
+		prod_obj = Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first()
+		flag_obj.products.add(prod_obj)
 
 	return redirect("/flagged/")
 
