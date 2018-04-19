@@ -80,8 +80,9 @@ def search_view(request):
 @login_required(login_url="/accounts/login/")
 def flagged_view(request):
 	current_user = request.user.user
-
-	flagged = Flag.objects.all()
+	query = request.GET.get("q")
+	flagged = Flag.objects.filter(title__icontains=query)
+	# flagged = Flag.objects.all()
 	lst = []
 	ctr_lst = []
 	for i in flagged:
