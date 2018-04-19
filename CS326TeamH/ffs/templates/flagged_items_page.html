@@ -54,12 +54,9 @@
           <p>
             <red>{{ obj2 }}</red> Flagged
           </p>
-          <!-- <a class="btn btn-primary" href="#">View Seller</a>
-          <a class="btn btn-primary" href="#">Unflag Item</a> -->
           <form action="remove/" method="post">
-        <!-- <input type='submit' name='view_item' value='View Item'> -->
           <input type='hidden' name='product_title' value={{ obj1.title }}/>
-          <button type='submit' class="btn btn-success">UnFlag Item</button>
+          <button type='submit' class="btn btn-primary">UnFlag Item</button>
           </form>
         </div>
       </div>
