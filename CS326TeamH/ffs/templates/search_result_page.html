@@ -57,7 +57,10 @@
                 <p>
                   <red>{{ obj2 }}</red> Flagged
                 </p>
-                <a class="btn btn-primary" href="#">View Seller</a>    <a class="btn btn-primary" href="#">Flag Item</a>
+                <form action="add/" method="post">
+                <input type='hidden' name='product_title' value="{{ obj1.title }}"/>
+                <button type='submit' class="btn btn-primary">Flag Item</button>
+                </form>
               </div>
             </div>
             <!-- /.row -->

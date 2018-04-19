@@ -3,6 +3,8 @@ from ffs.models import Product
 from ffs.models import User
 from ffs.models import Flag
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
+from django.views.decorators.csrf import csrf_exempt
 
 from django.contrib.auth.decorators import login_required
 
@@ -100,17 +102,37 @@ def flagged_view(request):
 			}
 	return render(request, 'flagged_items_page.html', context)
 
+@csrf_exempt
+@login_required(login_url="/accounts/login/")
+def add_to_flagged(request):
+
+	if request.method == 'POST':
+		print(request.POST)
+		current_user = request.user.user
+		flag_obj = Flag.objects.create(user=current_user)
+		prod_obj = Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first()
+		flag_obj.products.add(prod_obj)
+
+	return redirect("/flagged/")
+
+@csrf_exempt
+@login_required(login_url="/accounts/login/")
+def remove_from_flagged(request):
+	flagged = Flag.objects.all()
+
+
+	if request.method == 'POST':
+		current_user = request.user.user
+		for i in flagged:
+			if i.user.email == current_user.email:
+				if i.products.first() == Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first():
+					i.delete()
+	return redirect("/flagged/")
+
+
+
 def landing_view(request):
  	return render(request, 'landing-page.html', context={})
-
-
-
-
-# from django.shortcuts import get_object_or_404
-# from django.http import HttpResponseRedirect
-# from django.urls import reverse
-
-
 
 from .forms import UploadProductForm
 @login_required(login_url="/accounts/login/")
