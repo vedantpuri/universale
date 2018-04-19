@@ -39,6 +39,9 @@ Open a browser and go to the following address:
 ## Purpose
 Being a college student, there is always a time when one needs to get rid of their previous course books or furniture and make money off of them. Most students would be aware of facebook groups for doing this. But what if someone in another college nearby gave you a better deal on that calculus textbook, or was offering a wooden shelf for free, or a table fan for rent ? What if someone wasn't on facebook for some reason and had the desire to sell and buy products without burning a hole in his/her pocket? Keeping all this in mind, we came up with a common solution : A web app for Free and For sale for the 5 college consortium exclusively. It doesn't end there, it may not necessarily be a material object, could be tutoring sessions, dancing lessons, driving tutorials and so much more! The possibilities are endless!
 
+## Things Left To Do
+This is the link to the google doc:
+https://docs.google.com/document/d/17NYFP78NxQO8fUIcAeUQscLd4rPMcwegRhBxTFJ0wN0/edit?usp=sharing
 
 ## License
 The project is available under the [MIT](https://github.com/vedantpuri/ffs-web/blob/master/LICENSE) license.
