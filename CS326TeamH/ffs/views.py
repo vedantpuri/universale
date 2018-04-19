@@ -80,8 +80,7 @@ def search_view(request):
 def flagged_view(request):
 	current_user = request.user.user
 	query = request.GET.get("q")
-	flagged = Flag.objects.filter(title__icontains=query)
-	# flagged = Flag.objects.all()
+	flagged = Flag.objects.all()
 	lst = []
 	ctr_lst = []
 	for i in flagged:
