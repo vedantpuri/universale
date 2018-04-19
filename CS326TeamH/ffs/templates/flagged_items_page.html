@@ -32,9 +32,11 @@
 
       <div class="row">
         <div class="col-md-7">
-          <a href="#">
-             <img class="img-fluid" src="{{obj1.image.url}}" alt="Responsive image">
-          </a>
+          {%if obj1.image %}
+            <img class="img-fluid rounded mb-3 mb-md-0" src={{obj1.image.url}} alt="">
+          {%else%}
+            <img class="img-fluid rounded mb-3 mb-md-0" src="{% static 'img/noimage.png' %}" alt="">
+          {% endif %}
         </div>
         <div class="col-md-5">
           <h5><i>{{ obj1.title }}</i></h5><br>
