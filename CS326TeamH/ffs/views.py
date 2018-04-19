@@ -115,6 +115,21 @@ def add_to_flagged(request):
 
 	return redirect("/flagged/")
 
+@csrf_exempt
+@login_required(login_url="/accounts/login/")
+def remove_from_flagged(request):
+	flagged = Flag.objects.all()
+
+
+	if request.method == 'POST':
+		current_user = request.user.user
+		for i in flagged:
+			if i.user.email == current_user.email:
+				if i.products.first() == Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first():
+					i.delete()
+	return redirect("/flagged/")
+
+
 
 def landing_view(request):
  	return render(request, 'landing-page.html', context={})
