@@ -18,8 +18,7 @@ def product_list_view(request):
 
 @login_required(login_url="/accounts/login/")
 def user_view(request):
-	print("Current User", request.user.user)
-	user = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
+	user = request.user.user
 	fname = user.first_name
 	lname = user.last_name
 
@@ -123,7 +122,6 @@ def upload_view(request):
 			# replace this line with logged in user
 			product_owner = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
 			product_instance.owner = product_owner
-			print(product_instance.description)
 			product_instance.save()
 			return HttpResponseRedirect("../user/?success")
 
@@ -137,7 +135,6 @@ from .forms import EditProfileForm
 @login_required(login_url="/accounts/login/")
 def edit_profile_view(request):
 	# form = EditProfileForm(request.POST, request.FILES)
-
 	user = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
 	college = user.get_college_display()
 	form = EditProfileForm(instance=user)
@@ -146,4 +143,4 @@ def edit_profile_view(request):
 		if form.is_valid():
 			form.save()
 			# redirect link here
-	return render(request, 'user_edit.html', {'form': form, 'user': user, 'user_college': college})
+	return render(request, 'user_edit.html', {'form': form, 'user_college': college})
