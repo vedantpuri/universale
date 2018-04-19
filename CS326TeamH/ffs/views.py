@@ -134,13 +134,6 @@ def remove_from_flagged(request):
 def landing_view(request):
  	return render(request, 'landing-page.html', context={})
 
-
-# from django.shortcuts import get_object_or_404
-# from django.http import HttpResponseRedirect
-# from django.urls import reverse
-
-
-
 from .forms import UploadProductForm
 @login_required(login_url="/accounts/login/")
 def upload_view(request):
