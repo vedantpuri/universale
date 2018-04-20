@@ -28,20 +28,12 @@ window.onload=MyAutoRun;
 {% load static from staticfiles %}
 
 {%block content%}
-<br>
-<br>
-<br>
-<div class="row">
-<div class="col-2">
-</div>
-<div class="col-8">
 
 <p id="topdiv" style="margin-bottom: -40px"><p>
 <div id="hide" class="alert alert-success alert-dismissable fade show" style="text-align:center; margin-left:50px;margin-right:50px;visibility:hidden">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <strong>A New Item was Uploaded Successfully</strong>
 </div>
-
 <div class="row">
 <div class="col-2">
 </div>
@@ -136,8 +128,7 @@ var star = {{ star }};
   {% endfor %}
 </div>
 <div class="col-2">
-  <a class="btn btn-secondary" href="{% url 'user_edit' %}">Edit Profile</a>
-</div>
+  <a class="btn btn-secondary" href="{% url 'user_edit' %}" >Edit Profile</a>
 </div>
 </div>
 {% endblock %}
