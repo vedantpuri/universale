@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+
+<!-- {% load static %} -->
+{%block styles%}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/css/user_profile.css">
+<link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="{% static 'css/user_profile.css' %}"> -->
+{%endblock%}
+
+{% load static from staticfiles %}
+
+{%block content%}
+
+<div class="row">
+<div class="col-2">
+</div>
+
+<div class="col-8 text-center">
+<div id="profile" class="row">
+
+
+    <div class="span12" id="content">
+
+<div class="row">
+  <div class="col-12 text-center">
+  <img class="user-image" src={{image.url}}>
+</div>
+<br>
+  <div class="col-12">
+  <h1 id="name">{{fname}} {{lname}}</h1>
+   <h2 id="college">{{ college }}</h2>
+ </div>
+ <br>
+   <div class="col-3">
+
+ Items for Sale
+ <br>
+ <a href="#count_target">{{ count }}</a>
+</div>
+<div class="col-3">
+
+Rating
+<br>
+<script>
+var star = {{ star }};
+  for(i = 1; i <=5; i++){
+    if(star > i){
+      document.write("★");
+    }
+    else{
+      document.write("✩");
+    }
+}
+</script>
+</div>
+ <div class="col-3">
+   <a href="http://facebook.com/jakerocheleau" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/facebook_icon.png' %}" alt="@jakerocheleau"></a>
+ </div>
+   <div class="col-3">
+   <a href="mailto:{{email}}" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/mail.png' %}" alt="@jakerocheleau"></a>
+   <!-- target to when user clicks on the count in the top bar. Hope to show products when clicked -->
+   <a name="count_target"></a>
+ </div>
+
+<div class='col-12'>
+<hr>
+
+<h2>About me</h2>
+<text>{{bio}}</text>
+
+<br>
+
+<hr>
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+  <h2>Products for Sale</h2>
+  {% for product, flag in products reversed %}
+  <div class="row">
+    <div class="col-md-7">
+      <a href="#">
+        {%if product.image %}
+          <img class="img-fluid rounded mb-3 mb-md-0" src={{product.image.url}} alt="">
+        {%else%}
+          <img class="img-fluid rounded mb-3 mb-md-0" src="{% static 'img/noimage.png' %}" alt="">
+        {% endif %}
+      </a>
+    </div>
+    <div class="col-md-5">
+      <h5><i>{{ product.title }}</i></h5>
+      <p>{{product.description}}<br><br>
+      Price: ${{product.price}} <br>
+      </p>
+      <p>
+        <red>{{ flag }}</red> Flagged
+      </p>
+    </div>
+  </div>
+  <hr>
+  {% endfor %}
+</div>
+<div class="col-2">
+</div>
+</div>
+{% endblock %}

@@ -115,6 +115,49 @@ def add_to_flagged(request):
 
 	return redirect("/flagged/")
 
+@login_required(login_url="/accounts/login/")
+def view_alt_user(request):
+
+	if request.method == 'GET':
+		print(request.GET)
+		user_id = request.GET['user_obj']
+		alt_user = User.objects.get(id=user_id)
+		print(alt_user.first_name)
+
+		fname = alt_user.first_name
+		lname = alt_user.last_name
+		flagged = Flag.objects.all()
+		bio = alt_user.bio
+		image = alt_user.image
+		email = alt_user.email
+		products = alt_user.product_set.all()
+		college = alt_user.get_college_display()
+		count = products.count()
+		star = alt_user.star_count
+		lst = []
+
+		for i in products:
+			ctr = 0
+			title = i.title
+			for j in flagged:
+				tmp = j.products.all()
+				if len(tmp)>0 and tmp[0].title == title:
+					ctr += 1
+			lst.append(ctr)
+		context = {
+			'fname': fname,
+			'lname': lname,
+			'college': college,
+			'bio': bio,
+			'image' : image,
+			'email' : email,
+			'products': zip(products, lst),
+			'count': count,
+			'star': star
+		}
+
+	return render(request, 'alt_user.html', context)
+
 @csrf_exempt
 @login_required(login_url="/accounts/login/")
 def remove_from_flagged(request):

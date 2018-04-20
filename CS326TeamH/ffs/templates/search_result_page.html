@@ -61,6 +61,10 @@
                 <input type='hidden' name='product_title' value="{{ obj1.title }}"/>
                 <button type='submit' class="btn btn-primary">Flag Item</button>
                 </form>
+                <form action="{% url 'alt_user' %}" method="get">
+                  <input type='hidden' name='user_obj' value="{{ obj1.owner.id }}"/>
+                  <button type='submit' class="btn btn-primary">View Seller</button>
+                </form>
               </div>
             </div>
             <!-- /.row -->

@@ -9,6 +9,7 @@ from ffs.views import upload_view
 from ffs.views import edit_profile_view
 from ffs.views import add_to_flagged
 from ffs.views import remove_from_flagged
+from ffs.views import view_alt_user
 
 urlpatterns = [
 	path('user/', user_view, name='user'),
@@ -18,5 +19,6 @@ urlpatterns = [
 	path('search/add/', add_to_flagged, name='search_add'),
 	path('upload/', upload_view, name='upload'),
 	path('edit_profile/', edit_profile_view, name="user_edit"),
+	path('alt_user/', view_alt_user, name='alt_user'),
 	path('', landing_view, name='home')
 ]
