@@ -28,6 +28,13 @@ window.onload=MyAutoRun;
 {% load static from staticfiles %}
 
 {%block content%}
+<br>
+<br>
+<br>
+<div class="row">
+<div class="col-2">
+</div>
+<div class="col-8">
 
 <p id="topdiv" style="margin-bottom: -40px"><p>
 <div id="hide" class="alert alert-success alert-dismissable fade show" style="text-align:center; margin-left:50px;margin-right:50px;visibility:hidden">
@@ -43,7 +50,7 @@ window.onload=MyAutoRun;
 <div id="profile" class="row">
 
 
-    <div class="span12" id="content">
+    <div class="span8" id="content">
 
 <div class="row">
   <div class="col-12 text-center">
@@ -130,6 +137,7 @@ var star = {{ star }};
 </div>
 <div class="col-2">
   <a class="btn btn-secondary" href="{% url 'user_edit' %}">Edit Profile</a>
+</div>
 </div>
 </div>
 {% endblock %}
