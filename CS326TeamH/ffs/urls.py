@@ -11,6 +11,11 @@ from ffs.views import add_to_flagged
 from ffs.views import remove_from_flagged
 from ffs.views import view_alt_user
 
+
+# from registration.backends.default import DefaultBackend
+# from registration.views import activate
+# from registration.views import register
+
 urlpatterns = [
 	path('user/', user_view, name='user'),
 	path('search/', search_view, name='search'),

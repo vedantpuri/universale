@@ -7,7 +7,9 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate
 
+from .forms import SignUpForm
 # Create your views here.
 def product_list_view(request):
 	queryset = Product.objects.filter(title__icontains='textbook')
@@ -209,3 +211,30 @@ def edit_profile_view(request):
 			form.save()
 			# redirect link here
 	return render(request, 'user_edit.html', {'form': form, 'user_college': college})
+
+
+def signup(request):
+
+
+    if request.method == 'POST':
+        form = SignUpForm(request.POST, request.FILES)
+        if form.is_valid():
+        	user = form.save()
+        	username = form.cleaned_data.get('username')
+        	password = form.cleaned_data.get('password1')
+        	#user = authenticate(username=username, password=password)
+        	ffs_user = User(user=user,
+        		first_name=form.cleaned_data.get('first_name'),
+        		last_name=form.cleaned_data.get('last_name'),
+        		bio=form.cleaned_data.get('bio'),
+        		college = form.cleaned_data.get('college'),
+        		email = form.cleaned_data.get('username'),
+        		star_count = 0,
+        		image = request.FILES.get('image')
+        		)
+        	ffs_user.save()
+        	login(request, user)
+        	return render(request, 'landing-page.html', context={})
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
