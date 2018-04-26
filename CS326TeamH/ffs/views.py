@@ -9,8 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 
-from .forms import SignUpForm
-# Create your views here.
+
 def product_list_view(request):
 	queryset = Product.objects.filter(title__icontains='textbook')
 
@@ -19,6 +18,7 @@ def product_list_view(request):
 	}
 
 	return render(request, 'details.html', context)
+
 
 @login_required(login_url="/accounts/login/")
 def user_view(request):
@@ -57,6 +57,7 @@ def user_view(request):
 	}
 	return render(request, 'user.html', context)
 
+
 def search_view(request):
 	query = request.GET.get("q")
 	queryset = Product.objects.filter(title__icontains=query)
@@ -79,6 +80,7 @@ def search_view(request):
 	}
 
 	return render(request, 'search_result_page.html', context)
+
 
 @login_required(login_url="/accounts/login/")
 def flagged_view(request):
@@ -104,6 +106,7 @@ def flagged_view(request):
 			}
 	return render(request, 'flagged_items_page.html', context)
 
+
 @csrf_exempt
 @login_required(login_url="/accounts/login/")
 def add_to_flagged(request):
@@ -116,6 +119,7 @@ def add_to_flagged(request):
 		flag_obj.products.add(prod_obj)
 
 	return redirect("/flagged/")
+
 
 @login_required(login_url="/accounts/login/")
 def view_alt_user(request):
@@ -160,6 +164,7 @@ def view_alt_user(request):
 
 	return render(request, 'alt_user.html', context)
 
+
 @csrf_exempt
 @login_required(login_url="/accounts/login/")
 def remove_from_flagged(request):
@@ -175,9 +180,20 @@ def remove_from_flagged(request):
 	return redirect("/flagged/")
 
 
+@csrf_exempt
+@login_required(login_url="/accounts/login/")
+def remove_from_user(request):
+	if request.method == 'POST':
+		id = request.POST.get("product_id")
+		prod_inst = Product.objects.get(pk=id)
+		print(prod_inst)
+		prod_inst.delete()
+	return redirect("/user/")
+
 
 def landing_view(request):
  	return render(request, 'landing-page.html', context={})
+
 
 from .forms import UploadProductForm
 @login_required(login_url="/accounts/login/")
@@ -186,8 +202,7 @@ def upload_view(request):
 		form = UploadProductForm(request.POST, request.FILES)
 		if form.is_valid():
 			product_instance = form.save(commit=False)
-			# replace this line with logged in user
-			product_owner = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
+			product_owner = request.user.user
 			product_instance.owner = product_owner
 			product_instance.save()
 			return HttpResponseRedirect("../user/?success")
@@ -198,24 +213,22 @@ def upload_view(request):
 
 	return render(request, 'upload-page.html', {'form': form})
 
+
 from .forms import EditProfileForm
 @login_required(login_url="/accounts/login/")
 def edit_profile_view(request):
-	# form = EditProfileForm(request.POST, request.FILES)
-	user = request.user.user#User.objects.get(email='samuelljackson@umass.edu')
+	user = request.user.user
 	college = user.get_college_display()
 	form = EditProfileForm(instance=user)
 	if request.method == 'POST':
 		form = EditProfileForm(request.POST, request.FILES, instance=user)
 		if form.is_valid():
 			form.save()
-			# redirect link here
 	return render(request, 'user_edit.html', {'form': form, 'user_college': college})
 
 
+from .forms import SignUpForm
 def signup(request):
-
-
     if request.method == 'POST':
         form = SignUpForm(request.POST, request.FILES)
         if form.is_valid():
@@ -230,7 +243,7 @@ def signup(request):
         		college = form.cleaned_data.get('college'),
         		email = form.cleaned_data.get('username'),
         		star_count = 0,
-        		image = request.FILES.get('image')
+        		image = request.FILES['image']
         		)
         	ffs_user.save()
         	login(request, user)

@@ -11,6 +11,7 @@ from ffs.views import add_to_flagged
 from ffs.views import remove_from_flagged
 from ffs.views import view_alt_user
 from ffs.views import signup
+from ffs.views import remove_from_user
 
 # from registration.backends.default import DefaultBackend
 # from registration.views import activate
@@ -21,6 +22,7 @@ urlpatterns = [
 	path('search/', search_view, name='search'),
 	path('flagged/', flagged_view, name='flag'),
 	path('flagged/remove/', remove_from_flagged, name='flag_remove'),
+	path('user/remove_product/', remove_from_user, name='user_prod_remove'),
 	path('search/add/', add_to_flagged, name='search_add'),
 	path('upload/', upload_view, name='upload'),
 	path('edit_profile/', edit_profile_view, name="user_edit"),
