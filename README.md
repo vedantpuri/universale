@@ -31,8 +31,8 @@ Open a browser and go to the following address:
 
 
 ## Current Capabilities
-- Upload a Product
-- Flag an item you may like
+- Upload/Delete an item
+- Flag/Un-flag an item
 - Search for items
 - Edit your profile
 
