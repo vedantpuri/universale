@@ -10,7 +10,7 @@ from ffs.views import edit_profile_view
 from ffs.views import add_to_flagged
 from ffs.views import remove_from_flagged
 from ffs.views import view_alt_user
-
+from ffs.views import signup
 
 # from registration.backends.default import DefaultBackend
 # from registration.views import activate
@@ -25,5 +25,7 @@ urlpatterns = [
 	path('upload/', upload_view, name='upload'),
 	path('edit_profile/', edit_profile_view, name="user_edit"),
 	path('alt_user/', view_alt_user, name='alt_user'),
-	path('', landing_view, name='home')
+	path('', landing_view, name='home'),
+	path('signup/', signup, name='signup'),
+
 ]

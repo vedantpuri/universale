@@ -50,7 +50,11 @@ window.onload=MyAutoRun;
         <div class="row">
 
             <div class="col-12 text-center">
+              {% if image %}
               <img class="user-image" src={{image.url}}>
+              {% else %}
+              <img class="user-image" src="{%static 'img/defaultphoto.jpg'%}">
+              {% endif %}
             </div>
     <br>
 
