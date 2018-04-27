@@ -28,9 +28,7 @@ window.onload=MyAutoRun;
 {% load static from staticfiles %}
 
 {%block content%}
-<br>
-<br>
-<br>
+
 <div class="row">
   <div class="col-2"></div>
 
@@ -42,7 +40,7 @@ window.onload=MyAutoRun;
       <strong>A New Item was Uploaded Successfully</strong>
     </div>
     <a class="btn btn-secondary" style = "margin-left: 90%;" href="{% url 'user_edit' %}">Edit Profile</a>
-</div>
+<!-- </div> -->
 
     <div class="row">
       <div class="col-2"></div>
@@ -113,7 +111,6 @@ window.onload=MyAutoRun;
 
 </div>
 
-
   <h2>Products for Sale</h2>
   {% for product, flag in products reversed %}
     <div class="row">
@@ -161,7 +158,18 @@ window.onload=MyAutoRun;
         </div>
       </div>
       <hr>
+      {% empty %}
+          <br>
+          <br>
+          <h2 style="text-align: center; color: #696969">You currently have nothing up for sale.</h2>
+          <br>
+          <br>
+
   {% endfor %}
+<br>
+<br>
+<br>
+<br>
 </div>
 </div>
 </div>
