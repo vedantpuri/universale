@@ -10,22 +10,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="{% static 'css/user_profile.css' %}"> -->
-<script>
-function MyAutoRun(){
-  var searchURL = window.location.search;
-  searchURL = searchURL.substring(1, searchURL.length);
-  if(searchURL=="success"){
-    document.getElementById("topdiv").appendChild(document.createElement("br"));
-    document.getElementById("topdiv").appendChild(document.createElement("br"));
-    document.getElementById("topdiv").appendChild(document.createElement("br"));
-    document.getElementById("hide").style.visibility="visible";
-  }
-}
-window.onload=MyAutoRun;
-</script>
 {%endblock%}
 
 {% load static from staticfiles %}
+
 
 {%block content%}
 <br>
@@ -35,14 +23,14 @@ window.onload=MyAutoRun;
   <div class="col-2"></div>
 
 
-<div class="col-8">
+<!-- <div class="col-8">
     <p id="topdiv" style="margin-bottom: -40px"><p>
     <div id="hide" class="alert alert-success alert-dismissable fade show" style="text-align:center; margin-left:50px;margin-right:50px;visibility:hidden">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <strong>A New Item was Uploaded Successfully</strong>
     </div>
     <a class="btn btn-secondary" style = "margin-left: 90%;" href="{% url 'user_edit' %}">Edit Profile</a>
-</div>
+</div> -->
 
     <div class="row">
       <div class="col-2"></div>
@@ -50,11 +38,7 @@ window.onload=MyAutoRun;
         <div class="row">
 
             <div class="col-12 text-center">
-              {% if image %}
               <img class="user-image" src={{image.url}}>
-              {% else %}
-              <img class="user-image" src="{%static 'img/defaultphoto.jpg'%}">
-              {% endif %}
             </div>
     <br>
 
@@ -133,32 +117,8 @@ window.onload=MyAutoRun;
             Price: ${{product.price}} <br>
           </p>
           <p><red>{{ flag }}</red> Flagged</p>
-          <br>
-          <br>
-          <form action="remove_product/" method="post">
-            <input type='hidden' name='product_id' value="{{ product.id }}"/>
-            <button type='button' class="btn btn-danger btn-sm ml-3"  data-toggle="modal" data-target="#exampleModalCenter" >Delete Product</button>
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Are you sure you want to delete this item?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">Yes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
         </div>
+
       </div>
       <hr>
   {% endfor %}
