@@ -54,7 +54,7 @@
 
 
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username">Email</label>
         <input class="form-control" type="text" name="username" id="username" placeholder="Email" required />
 
       </div>
@@ -71,9 +71,9 @@
             <input id="button" class="btn btn--form" type="submit" value="Login" />
             <input type="hidden" name="next" value="{{ next }}" />
           </li>
-          <!-- <li>
-            <a class="signup__link" href="login.html">New member? Signup!</a>
-          </li> -->
+          <li>
+            <a class="signup__link" href="{% url 'signup' %}">New member? Signup!</a>
+          </li>
         </ul>
       </div>
     </form>
