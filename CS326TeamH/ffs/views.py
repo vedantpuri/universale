@@ -243,7 +243,7 @@ def signup(request):
         		college = form.cleaned_data.get('college'),
         		email = form.cleaned_data.get('username'),
         		star_count = 0,
-        		image = request.FILES['image']
+        		image = request.FILES.get('image')
         		)
         	ffs_user.save()
         	login(request, user)

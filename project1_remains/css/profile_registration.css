@@ -1,8 +1,6 @@
-
 body {
   font: 100% / 1.414 "Open Sans", "Roboto", arial, sans-serif;
   background: #32d4c878;
-
 }
 
 #holder {
@@ -16,8 +14,6 @@ body {
 #header2 {
   padding-left: 40px;
 }
-
-
 
 #button {
   background-color: #343a40;
@@ -33,12 +29,7 @@ a,
   transition: all .25s ease-in;
 }
 
-.container__child {
-  overflow-y: auto; 
-}
-
 .signup__container {
-  
   position: absolute;
   top: 48.5%;
   right: 0;
@@ -65,7 +56,6 @@ a,
 }
 
 .signup__overlay {
-  
   position: absolute;
   top: 0;
   left: 0;
