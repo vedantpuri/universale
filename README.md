@@ -1,5 +1,5 @@
 ![Header](resources/hero.png)
-![status In_Progress](https://img.shields.io/badge/status-In_Progress-yellow.svg?style=flat-square)
+![status In_Progress](https://img.shields.io/badge/status-In_Progress-yellow.svg?style=for-the-badge)
 
 # Universale
 A web app for college students to buy/sell items.Provides a simple, easy to use platform for students to find items/ services of interest.
