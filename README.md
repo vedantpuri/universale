@@ -1,4 +1,4 @@
-![Header](resources/hero.png)
+![Header](resources/header.png)
 ![status In_Progress](https://img.shields.io/badge/status-In_Progress-yellow.svg?style=for-the-badge)
 
 # Universale
