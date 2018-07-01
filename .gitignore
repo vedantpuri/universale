@@ -2,3 +2,7 @@ OS junk files
 *.DS_Store
 *.pyc
 __pycache__/
+
+.idea
+.DS_Store
+.DS_STORE

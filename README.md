@@ -1,10 +1,8 @@
-# Free and For Sale
+![Header](resources/hero.png)
 ![status In_Progress](https://img.shields.io/badge/status-In_Progress-yellow.svg?style=flat-square)
-<br><br>
-A web app for college students to buy/sell items. Currently this app is exclusive to the 5 college consortium but hopes to expand later. Provides a simple, easy to use platform for students to find items/ services of interest.
-The only pre-requisite to access the web app is to have a 5 college email ID.
-<br><br>
-![Alt text](screenshots/landing.png?raw=true "Our Landing Page")
+
+# Universale
+A web app for college students to buy/sell items.Provides a simple, easy to use platform for students to find items/ services of interest.
 
 ## Requirements
 - Python >= 3
@@ -41,4 +39,4 @@ Being a college student, there is always a time when one needs to get rid of the
 
 
 ## License
-The project is available under the [MIT](https://github.com/vedantpuri/ffs-web/blob/master/LICENSE) license.
+The project is available under the **MIT** license. See the [license](https://github.com/vedantpuri/ffs-web/blob/master/LICENSE) file for more informations.
