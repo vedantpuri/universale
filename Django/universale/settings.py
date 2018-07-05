@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'CS326TeamH.urls'
+ROOT_URLCONF = 'universale.urls'
 
 AUTH_PROFILE_MODULE = 'ffs.User'
 
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'CS326TeamH.wsgi.application'
+WSGI_APPLICATION = 'universale.wsgi.application'
 
 
 # Database
