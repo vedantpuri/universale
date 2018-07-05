@@ -1,83 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  {% load static %}
-  {% block title %}<title>Free and For Sale</title>{% endblock %}
-  {% block styles %}<!-- Styles for every page might vary-->{% endblock %}
-</head>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    {% block title %}<title>Universale</title>{% endblock %}
+    {% block styles %}<!-- Styles for every page might vary-->{% endblock %}
+  </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">
-          {% block logo %}<img class = "imgsize" src="{% static 'img/logo.jpeg' %}"></img>{% endblock %}
-          Free and For Sale
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-            <ul class="navbar-nav m-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">
-                      <i class="fa fa-home"></i>Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'upload' %}">
-                      Upload Product
-                   </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'flag' %}">
-                      Flagged Items<i class="fa fa-flag"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user' %}">Your Profile</a>
-                </li>
-            </ul>
-
-            <form class="form-inline my-2 my-lg-0" method='GET' action='{% url 'search' %}'>
-              {% block search %}
-                <div class="input-group input-group-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            {% block logo %}<img class = "imgsize" src="{% static 'img/logo.jpeg' %}"></img>{% endblock %}
+            Universale
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+              <ul class="navbar-nav m-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'home' %}">
+                        <i class="fa fa-home"></i>Home
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'upload' %}">
+                        Upload Product
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'flag' %}">
+                        Flagged Items<i class="fa fa-flag"></i>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'user' %}">Your Profile</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" method='GET' action='{% url 'search' %}'>
+                  {% block search %}
+                  <div class="input-group input-group-sm">
                     <input type="text" class="form-control" name='q' placeholder="Search..." value={{entered_text}}>
                     <div class="input-group-append">
                         <button class="btn btn-block btn-lg btn-primary" type='submit' value='Search' ><i class="fa fa-search"></i></button>
-                        <!-- <a class="btn btn-block btn-lg btn-primary" href="{% url 'search' %}"><i class="fa fa-search"></i></a> -->
                     </div>
-                </div>
-                {% endblock %}
-                <!-- {% block edit %} -->
-                {% if user.is_authenticated %}
-                  <a class="btn btn-danger btn-sm ml-3" href="{% url 'logout'%}"><i class="fa fa-user"></i> Log Out
-                  </a>
-                {% else %}
-                  <a class="btn btn-success btn-sm ml-3" style="color=blue" href="{% url 'login'%}?next{'/accounts/login'}"><i class="fa fa-user"></i> Sign-in/Register
-                  </a>
-                {% endif %}
-                <!-- {% endblock %} -->
-            </form>
-
+                  </div>
+                  {% endblock %}
+                  {% if user.is_authenticated %}
+                    <a class="btn btn-danger btn-sm ml-3" href="{% url 'logout'%}"><i class="fa fa-user"></i> Log Out </a>
+                  {% else %}
+                    <a class="btn btn-success btn-sm ml-3" style="color=blue" href="{% url 'login'%}?next{'/accounts/login'}"><i class="fa fa-user"></i> Sign-in/Register
+                    </a>
+                  {% endif %}
+                  </form>
+          </div>
         </div>
-    </div>
   </nav>
-
   {% block content %}<!-- default content text (typically empty) -->{% endblock %}
-
   {% block footer %}
   <footer id="foot" class="py-5 bg-dark" style="position: static">
   {% endblock %}
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Free and For Sale 2018</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Universale 2018</p>
       <p class="m-0 text-center text-white">
          <a href="https://github.com/vedantpuri/ffs-web">View us on github <i class="fa fa-github"></i></a>
        </p>
     </div>
-    <!-- /.container -->
   </footer>
-</body>
+  </body>
 </html>

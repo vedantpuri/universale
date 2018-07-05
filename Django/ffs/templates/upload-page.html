@@ -12,79 +12,72 @@
 
 {% load static %}
 
-  {%block content%}
-
+{%block content%}
 <br>
 <div class="top-bar">
   <h1 class="my-4" style="margin-left:40%">Post Your Item</h1>
 </div>
 <div class="row" style="margin-bottom:80px">
-<div class="col-2">
-</div>
-<div class="col-8">
+  <div class="col-2">
+  </div>
+  <div class="col-8">
 {% load widget_tweaks %}
-<form method="post" enctype="multipart/form-data" autocomplete="off" novalidate>
-  {% csrf_token %}
-
-  {% for hidden_field in form.hidden_fields %}
-    {{ hidden_field }}
-  {% endfor %}
-
-  {% if form.non_field_errors %}
-    <div class="alert alert-danger" role="alert">
-      {% for error in form.non_field_errors %}
-        {{ error }}
+    <form method="post" enctype="multipart/form-data" autocomplete="off" novalidate>
+      {% csrf_token %}
+      {% for hidden_field in form.hidden_fields %}
+        {{ hidden_field }}
       {% endfor %}
-    </div>
-  {% endif %}
-
-  {% for field in form.visible_fields %}
-    <div class="form-group">
-      {{ field.label_tag }}
-      {% if form.is_bound %}
-        {% if field.errors %}
-          {% render_field field class="form-control is-invalid" %}
-          {% for error in field.errors %}
-            <div class="invalid-feedback">
-              {{ error }}
-            </div>
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+          {% for error in form.non_field_errors %}
+            {{ error }}
           {% endfor %}
+        </div>
+      {% endif %}
+      {% for field in form.visible_fields %}
+        <div class="form-group">
+        {{ field.label_tag }}
+        {% if form.is_bound %}
+          {% if field.errors %}
+            {% render_field field class="form-control is-invalid" %}
+            {% for error in field.errors %}
+              <div class="invalid-feedback">
+                {{ error }}
+              </div>
+            {% endfor %}
+          {% else %}
+            {% render_field field class="form-control is-valid" %}
+          {% endif %}
         {% else %}
-          {% render_field field class="form-control is-valid" %}
+          {% render_field field class="form-control" %}
         {% endif %}
-      {% else %}
-        {% render_field field class="form-control" %}
-      {% endif %}
-      {% if field.help_text %}
-        <small class="form-text text-muted">{{ field.help_text }}</small>
-      {% endif %}
-    </div>
-  {% endfor %}
-
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Submit</button>
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        {% if field.help_text %}
+          <small class="form-text text-muted">{{ field.help_text }}</small>
+        {% endif %}
         </div>
-        <div class="modal-body">
-          Are you sure you want to upload this item?
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Yes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+      {% endfor %}
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Submit</button>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to upload this item?
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Yes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-</form>
+<div class="col-2"></div>
 </div>
-<div class="col-2">
-</div>
-</div>
-
 {% endblock %}

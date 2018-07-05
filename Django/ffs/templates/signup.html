@@ -1,80 +1,61 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" >
-
 <head>
   <meta charset="UTF-8">
-  <title>Free and For Sale sign up form</title>
+  <title>Universale sign up form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css'>
-<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'>
-<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 {% load static %}
-      <link rel="stylesheet" href="{%static 'css/profile_registration.css'%}">
-
-
+  <link rel="stylesheet" href="{%static 'css/profile_registration.css'%}">
 </head>
-
 <body>
   <div id="body">
-
-  <div class="signup__container">
-  <div class="container__child signup__thumbnail">
-    <div id="holder" class="thumbnail__logo">
-      <img src="{% static 'img/logo.jpeg' %}" style="border-radius: 50%"></img>
-    </div>
-    <div class="thumbnail__content text-center" id="header2" >
-      <h1 class="heading--primary">Welcome to Free and For Sale!</h1>
-      <br>
-      <h2 class="heading--secondary">Amazing items, great prices, convenient pick-ups!</h2>
-    </div>
-    <div class="thumbnail__links">
-      <ul class="list-inline m-b-0 text-center">
-        <li><a href="https://github.com/vedantpuri/ffs-web" target="_blank">View us on GitHub <i class="fa fa-github"></i></a></li>
-      </ul>
-    </div>
-    <div class="signup__overlay"></div>
-  </div>
-  <div class="container__child signup__form">
-  
-
-
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-<!--         {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %} -->
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-   <!--  <button type="submit">Sign up</button> -->
-  <!-- </form> -->
-
-
-      <div class="m-t-lg">
-        <ul class="list-inline">
-          <li>
-            <input id="button" class="btn btn--form" type="submit" value="Register" />
-          </li>
-          <li>
-            <a class="signup__link" href="{% url 'login' %}">I am already a member</a>
-          </li>
-        </ul>
+    <div class="signup__container">
+      <div class="container__child signup__thumbnail">
+        <div id="holder" class="thumbnail__logo">
+          <img src="{% static 'img/logo.jpeg' %}" style="border-radius: 50%"></img>
+        </div>
+        <div class="thumbnail__content text-center" id="header2" >
+          <h1 class="heading--primary">Welcome to Universale!</h1>
+          <br>
+          <h2 class="heading--secondary">Amazing items, great prices, convenient pick-ups!</h2>
+        </div>
+        <div class="thumbnail__links">
+          <ul class="list-inline m-b-0 text-center">
+            <li><a href="https://github.com/vedantpuri/ffs-web" target="_blank">View us on GitHub <i class="fa fa-github"></i></a></li>
+          </ul>
+        </div>
+        <div class="signup__overlay"></div>
       </div>
-    </form>
+      <div class="container__child signup__form">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% for field in form %}
+          <p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </p>
+          {% endfor %}
+          <div class="m-t-lg">
+            <ul class="list-inline">
+              <li>
+                <input id="button" class="btn btn--form" type="submit" value="Register" />
+              </li>
+              <li>
+                <a class="signup__link" href="{% url 'login' %}">I am already a member</a>
+              </li>
+            </ul>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</div>
-
-
-</div>
 </body>
-
 </html>

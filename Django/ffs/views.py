@@ -235,7 +235,6 @@ def signup(request):
         	user = form.save()
         	username = form.cleaned_data.get('username')
         	password = form.cleaned_data.get('password1')
-        	#user = authenticate(username=username, password=password)
         	ffs_user = User(user=user,
         		first_name=form.cleaned_data.get('first_name'),
         		last_name=form.cleaned_data.get('last_name'),
