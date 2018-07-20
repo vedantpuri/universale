@@ -5,18 +5,15 @@ from ffs.models import Flag
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
-
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 
 
 def product_list_view(request):
 	queryset = Product.objects.filter(title__icontains='textbook')
-
 	context = {
 		'object_list':queryset
 	}
-
 	return render(request, 'details.html', context)
 
 
@@ -25,7 +22,6 @@ def user_view(request):
 	logged_in_user = request.user.student
 	fname = logged_in_user.first_name
 	lname = logged_in_user.last_name
-
 	bio = logged_in_user.bio
 	image = logged_in_user.image
 	email = logged_in_user.email
@@ -35,13 +31,12 @@ def user_view(request):
 	star = logged_in_user.star_count
 	flagged = Flag.objects.all()
 	lst = []
-
 	for i in products:
 		ctr = 0
 		title = i.title
 		for j in flagged:
 			tmp = j.products.all()
-			if len(tmp)>0 and tmp[0].title == title:
+			if len(tmp) > 0 and tmp[0].title == title:
 				ctr += 1
 		lst.append(ctr)
 	context = {
@@ -63,22 +58,19 @@ def search_view(request):
 	queryset = Product.objects.filter(title__icontains=query)
 	flagged = Flag.objects.all()
 	lst = []
-
 	for i in queryset:
 		ctr = 0
 		title = i.title
 		for j in flagged:
 			tmp = j.products.all()
-			if len(tmp)>0 and tmp[0].title == title:
+			if len(tmp) > 0 and tmp[0].title == title:
 				ctr += 1
 		lst.append(ctr)
-
 	context = {
 		'object_list' : zip(queryset, lst),
 		'check': queryset,
 		'entered_text': query
 	}
-
 	return render(request, 'search_result_page.html', context)
 
 
@@ -97,10 +89,9 @@ def flagged_view(request):
 		title = i.title
 		for j in flagged:
 			tmp = j.products.all()
-			if len(tmp)>0 and tmp[0].title == title:
+			if len(tmp) > 0 and tmp[0].title == title:
 				ctr += 1
 		ctr_lst.append(ctr)
-
 	context = {
 			'object_list' : zip(lst, ctr_lst)
 			}
@@ -110,26 +101,20 @@ def flagged_view(request):
 @csrf_exempt
 @login_required(login_url="/accounts/login/")
 def add_to_flagged(request):
-
 	if request.method == 'POST':
 		print(request.POST)
 		current_user = request.user.student
 		flag_obj = Flag.objects.create(user=current_user)
 		prod_obj = Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first()
 		flag_obj.products.add(prod_obj)
-
 	return redirect("/flagged/")
 
 
 @login_required(login_url="/accounts/login/")
 def view_alt_user(request):
-
 	if request.method == 'GET':
-		print(request.GET)
 		user_id = request.GET['user_obj']
 		alt_user = Student.objects.get(id=user_id)
-		print(alt_user.first_name)
-
 		fname = alt_user.first_name
 		lname = alt_user.last_name
 		flagged = Flag.objects.all()
@@ -141,13 +126,12 @@ def view_alt_user(request):
 		count = products.count()
 		star = alt_user.star_count
 		lst = []
-
 		for i in products:
 			ctr = 0
 			title = i.title
 			for j in flagged:
 				tmp = j.products.all()
-				if len(tmp)>0 and tmp[0].title == title:
+				if len(tmp) > 0 and tmp[0].title == title:
 					ctr += 1
 			lst.append(ctr)
 		context = {
@@ -161,7 +145,6 @@ def view_alt_user(request):
 			'count': count,
 			'star': star
 		}
-
 	return render(request, 'alt_user.html', context)
 
 
@@ -169,8 +152,6 @@ def view_alt_user(request):
 @login_required(login_url="/accounts/login/")
 def remove_from_flagged(request):
 	flagged = Flag.objects.all()
-
-
 	if request.method == 'POST':
 		current_user = request.user.student
 		for i in flagged:
@@ -206,11 +187,8 @@ def upload_view(request):
 			product_instance.owner = product_owner
 			product_instance.save()
 			return HttpResponseRedirect("../user/?success")
-
-			# redirect link here
 	else:
 		form = UploadProductForm()
-
 	return render(request, 'upload-page.html', {'form': form})
 
 
