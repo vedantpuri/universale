@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from ffs.models import Product
-from ffs.models import User
+from ffs.models import Student
 from django.contrib.auth.models import User as DjangoUser
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
@@ -20,7 +20,7 @@ class UploadProductForm(ModelForm):
 class EditProfileForm(ModelForm):
 
     class Meta:
-        model = User
+        model = Student
         fields = ['image', 'first_name', 'last_name', 'bio', 'college', 'email']
 
 

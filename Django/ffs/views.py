@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from ffs.models import Product
-from ffs.models import User
+from ffs.models import Student
 from ffs.models import Flag
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
@@ -22,17 +22,17 @@ def product_list_view(request):
 
 @login_required(login_url="/accounts/login/")
 def user_view(request):
-	user = request.user.user
-	fname = user.first_name
-	lname = user.last_name
+	logged_in_user = request.user.student
+	fname = logged_in_user.first_name
+	lname = logged_in_user.last_name
 
-	bio = user.bio
-	image = user.image
-	email = user.email
-	products = user.product_set.all()
-	college = user.get_college_display()
+	bio = logged_in_user.bio
+	image = logged_in_user.image
+	email = logged_in_user.email
+	products = logged_in_user.product_set.all()
+	college = logged_in_user.get_college_display()
 	count = products.count()
-	star = user.star_count
+	star = logged_in_user.star_count
 	flagged = Flag.objects.all()
 	lst = []
 
@@ -84,7 +84,7 @@ def search_view(request):
 
 @login_required(login_url="/accounts/login/")
 def flagged_view(request):
-	current_user = request.user.user
+	current_user = request.user.student
 	query = request.GET.get("q")
 	flagged = Flag.objects.all()
 	lst = []
@@ -113,7 +113,7 @@ def add_to_flagged(request):
 
 	if request.method == 'POST':
 		print(request.POST)
-		current_user = request.user.user
+		current_user = request.user.student
 		flag_obj = Flag.objects.create(user=current_user)
 		prod_obj = Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first()
 		flag_obj.products.add(prod_obj)
@@ -127,7 +127,7 @@ def view_alt_user(request):
 	if request.method == 'GET':
 		print(request.GET)
 		user_id = request.GET['user_obj']
-		alt_user = User.objects.get(id=user_id)
+		alt_user = Student.objects.get(id=user_id)
 		print(alt_user.first_name)
 
 		fname = alt_user.first_name
@@ -172,7 +172,7 @@ def remove_from_flagged(request):
 
 
 	if request.method == 'POST':
-		current_user = request.user.user
+		current_user = request.user.student
 		for i in flagged:
 			if i.user.email == current_user.email:
 				if i.products.first() == Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first():
@@ -202,7 +202,7 @@ def upload_view(request):
 		form = UploadProductForm(request.POST, request.FILES)
 		if form.is_valid():
 			product_instance = form.save(commit=False)
-			product_owner = request.user.user
+			product_owner = request.user.student
 			product_instance.owner = product_owner
 			product_instance.save()
 			return HttpResponseRedirect("../user/?success")
@@ -217,11 +217,11 @@ def upload_view(request):
 from .forms import EditProfileForm
 @login_required(login_url="/accounts/login/")
 def edit_profile_view(request):
-	user = request.user.user
-	college = user.get_college_display()
-	form = EditProfileForm(instance=user)
+	logged_in_user = request.user.student
+	college = logged_in_user.get_college_display()
+	form = EditProfileForm(instance=logged_in_user)
 	if request.method == 'POST':
-		form = EditProfileForm(request.POST, request.FILES, instance=user)
+		form = EditProfileForm(request.POST, request.FILES, instance=logged_in_user)
 		if form.is_valid():
 			form.save()
 	return render(request, 'user_edit.html', {'form': form, 'user_college': college})
@@ -235,7 +235,7 @@ def signup(request):
         	user = form.save()
         	username = form.cleaned_data.get('username')
         	password = form.cleaned_data.get('password1')
-        	ffs_user = User(user=user,
+        	student = Student(django_user=user,
         		first_name=form.cleaned_data.get('first_name'),
         		last_name=form.cleaned_data.get('last_name'),
         		bio=form.cleaned_data.get('bio'),
@@ -244,7 +244,7 @@ def signup(request):
         		star_count = 0,
         		image = request.FILES.get('image')
         		)
-        	ffs_user.save()
+        	student.save()
         	login(request, user)
         	return render(request, 'landing-page.html', context={})
     else:

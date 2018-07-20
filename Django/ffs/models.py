@@ -1,16 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
-# from django.db.models.signals import post_save
-# from django.dispatch import receiver
-
 
 class Product(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=7, default=39.99)
     image = models.FileField(upload_to='products/', null=True)
-    owner = models.ForeignKey('User', on_delete=models.SET_NULL, null=True)
+    owner = models.ForeignKey('Student', on_delete=models.SET_NULL, null=True)
     Availability = (
         ('a', 'Available'),
         ('s', 'Sold'),
@@ -20,8 +17,8 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-class User(models.Model):
-    user = models.OneToOneField(User, unique=True, null=True, on_delete=models.CASCADE)
+class Student(models.Model):
+    django_user = models.OneToOneField(User, unique=True, null=True, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     bio = models.TextField()
@@ -31,7 +28,7 @@ class User(models.Model):
         ('a', 'Amherst College'),
         ('s', 'Smith College'),
         ('m', 'Mount Holyoke College'),
-        ('h', 'Hamshire College'),
+        ('h', 'Hampshire College'),
     )
 
     college = models.CharField(max_length=1, choices=College, blank=True, default='u', help_text='college choice')
@@ -43,7 +40,7 @@ class User(models.Model):
         return '{0}, {1}'.format(self.first_name, self.last_name)
 
 class Flag(models.Model):
-    user = models.ForeignKey('User', on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey('Student', on_delete=models.SET_NULL, null=True, blank=True)
     products = models.ManyToManyField('Product', blank=True)
 
     def __str__(self):
