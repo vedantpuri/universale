@@ -104,9 +104,11 @@ def add_to_flagged(request):
 	if request.method == 'POST':
 		print(request.POST)
 		current_user = request.user.student
-		flag_obj = Flag.objects.create(user=current_user)
 		prod_obj = Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first()
-		flag_obj.products.add(prod_obj)
+		qs = Flag.objects.filter(user=current_user, products=prod_obj)
+		if not qs.exists():
+			flag_obj = Flag.objects.create(user=current_user)
+			flag_obj.products.add(prod_obj)
 	return redirect("/flagged/")
 
 
