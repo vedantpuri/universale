@@ -8,50 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 
-
-def product_list_view(request):
-	queryset = Product.objects.filter(title__icontains='textbook')
-	context = {
-		'object_list':queryset
-	}
-	return render(request, 'details.html', context)
-
-
 @login_required(login_url="/accounts/login/")
 def user_view(request):
-	logged_in_user = request.user.student
-	fname = logged_in_user.first_name
-	lname = logged_in_user.last_name
-	bio = logged_in_user.bio
-	image = logged_in_user.image
-	email = logged_in_user.email
-	products = logged_in_user.product_set.all()
-	college = logged_in_user.get_college_display()
-	count = products.count()
-	star = logged_in_user.star_count
-	flagged = Flag.objects.all()
-	lst = []
-	for i in products:
-		ctr = 0
-		title = i.title
-		for j in flagged:
-			tmp = j.products.all()
-			if len(tmp) > 0 and tmp[0].title == title:
-				ctr += 1
-		lst.append(ctr)
-	context = {
-		'fname': fname,
-		'lname': lname,
-		'college': college,
-		'bio': bio,
-		'image' : image,
-		'email' : email,
-		'products': zip(products, lst),
-		'count': count,
-		'star': star
-	}
-	return render(request, 'user.html', context)
-
+	return render(request, 'user.html')
 
 def search_view(request):
 	query = request.GET.get("q")
@@ -92,10 +51,7 @@ def flagged_view(request):
 			if len(tmp) > 0 and tmp[0].title == title:
 				ctr += 1
 		ctr_lst.append(ctr)
-	context = {
-			'object_list' : zip(lst, ctr_lst)
-			}
-	return render(request, 'flagged_items_page.html', context)
+	return render(request, 'flagged_items_page.html', { 'object_list' : zip(lst, ctr_lst) })
 
 
 @csrf_exempt
@@ -145,7 +101,8 @@ def view_alt_user(request):
 			'email' : email,
 			'products': zip(products, lst),
 			'count': count,
-			'star': star
+			'star': star,
+			'alt_user': user
 		}
 	return render(request, 'alt_user.html', context)
 

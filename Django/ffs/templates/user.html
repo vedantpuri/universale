@@ -43,28 +43,28 @@ window.onload=MyAutoRun;
       <div class="col-8 text-center">
         <div class="row">
           <div class="col-12 text-center">
-            {% if image %}
-              <img class="user-image" src={{image.url}}>
+            {% if request.user.student.image %}
+              <img class="user-image" src={{request.user.student.image.url}}>
             {% else %}
               <img class="user-image" src="{%static 'img/defaultphoto.jpg'%}">
             {% endif %}
           </div>
           <br>
           <div class="col-12">
-            <h1 id="name">{{fname}} {{lname}}</h1>
-            <h2 id="college">{{ college }}</h2>
+            <h1 id="name">{{ request.user.student.first_name }} {{ request.user.student.last_name }}</h1>
+            <h2 id="college">{{ request.user.student.get_college_display }}</h2>
           </div>
           <br>
           <div class="col-3">
             Items for Sale
             <br>
-            <a href="#count_target">{{ count }}</a>
+            <a href="#count_target">{{ request.user.student.product_set.all.count }}</a>
           </div>
           <div class="col-3">
             Rating
             <br>
             <script>
-            var star = {{ star }};
+            var star = {{ request.user.student.star_count }};
             for(i = 1; i <=5; i++){
               if(star > i){
                 document.write("★");
@@ -79,20 +79,20 @@ window.onload=MyAutoRun;
             <a href="http://facebook.com/jakerocheleau" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/facebook_icon.png' %}" alt="@jakerocheleau"></a>
           </div>
           <div class="col-3">
-            <a href="mailto:{{email}}" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/mail.png' %}" alt="@jakerocheleau"></a>
+            <a href="mailto:{{request.user.student.email}}" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/mail.png' %}" alt="@jakerocheleau"></a>
             <!-- target to when user clicks on the count in the top bar. Hope to show products when clicked -->
             <a name="count_target"></a>
           </div>
           <div class='col-12'>
             <hr>
             <h2>About me</h2>
-            <text>{{bio}}</text>
+            <text>{{ request.user.student.bio }}</text>
             <br>
             <hr>
           </div>
         </div>
         <h2>Products for Sale</h2>
-        {% for product, flag in products reversed %}
+        {% for product in request.user.student.product_set.all reversed %}
         <div class="row">
           <div class="col-md-7">
             <a href="#">
@@ -105,10 +105,10 @@ window.onload=MyAutoRun;
           </div>
           <div class="col-md-5">
             <h5><i>{{ product.title }}</i></h5>
-            <p>{{product.description}}<br><br>
-              Price: ${{product.price}} <br>
+            <p>{{ product.description }}<br><br>
+              Price: ${{ product.price }} <br>
             </p>
-            <p><red>{{ flag }}</red> Flagged</p>
+            <!-- <p><red>{{ flag }}</red> Flagged</p> -->
             <br>
             <br>
             <form action="remove_product/" method="post">
