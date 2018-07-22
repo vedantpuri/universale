@@ -35,23 +35,11 @@ def search_view(request):
 
 @login_required(login_url="/accounts/login/")
 def flagged_view(request):
-	current_user = request.user.student
-	query = request.GET.get("q")
-	flagged = Flag.objects.all()
+	items = Flag.objects.filter(user=request.user.student)
 	lst = []
-	ctr_lst = []
-	for i in flagged:
-		if i.user.email == current_user.email:
-			lst += [j for j in i.products.all()]
-	for i in lst:
-		ctr = 0
-		title = i.title
-		for j in flagged:
-			tmp = j.products.all()
-			if len(tmp) > 0 and tmp[0].title == title:
-				ctr += 1
-		ctr_lst.append(ctr)
-	return render(request, 'flagged_items_page.html', { 'object_list' : zip(lst, ctr_lst) })
+	for item in items:
+		lst += [j for j in item.products.all()]
+	return render(request, 'flagged_items_page.html', { 'object_list' : lst })
 
 
 @csrf_exempt

@@ -23,7 +23,7 @@
     </div>
     <div style="clear:both"></div>
     <br>
-    {% for obj1, obj2 in object_list reversed %}
+    {% for obj1 in object_list reversed %}
     <div class="row">
       <div class="col-md-7">
         {%if obj1.image %}
@@ -48,7 +48,8 @@
           </div>
         </p>
         <p>
-          <red>{{ obj2 }}</red> Flagged
+          <!--  Insert flag count here-->
+          <!-- <red>{{ obj2 }}</red> Flagged -->
         </p>
         <form action="remove/" method="post">
           <input type='hidden' name='product_title' value="{{ obj1.title }}"/>
