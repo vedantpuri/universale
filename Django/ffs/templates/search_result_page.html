@@ -52,7 +52,7 @@
               <red>{{ product.flag_count }}</red>  User(s) flagged this item.
             </p>
             <form action="add/" method="post">
-              <input type='hidden' name='product_title' value="{{ product.title }}"/>
+              <input type='hidden' name='product_id' value="{{ product.id }}"/>
               <button type='submit' class="btn btn-primary">Flag Item</button>
             </form>
             <form action="{% url 'alt_user' %}" method="get">

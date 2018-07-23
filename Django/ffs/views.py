@@ -31,7 +31,8 @@ def add_to_flagged(request):
 	if request.method == 'POST':
 		print(request.POST)
 		current_user = request.user.student
-		prod_obj = Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first()
+		id = request.POST.get("product_id")
+		prod_obj = Product.objects.get(pk=id)
 		qs = Flag.objects.filter(user=current_user, products=prod_obj)
 		# Check to prevent user to flag own item and prevent user to flag same item multiple times
 		if not qs.exists() and prod_obj.owner != current_user:
@@ -48,7 +49,8 @@ def remove_from_flagged(request):
 	flagged = Flag.objects.all()
 	if request.method == 'POST':
 		current_user = request.user.student
-		prod_obj = Product.objects.filter(title__icontains=request.POST.get("product_title", "")).first()
+		id = request.POST.get("product_id")
+		prod_obj = Product.objects.get(pk=id)
 		flag_obj = Flag.objects.get(user=current_user, products=prod_obj)
 		flag_obj.delete()
 		if prod_obj.flag_count > 0:
