@@ -1,9 +1,12 @@
 ![Header](resources/hero.png)
-![status In_Progress](https://img.shields.io/badge/status-In_Progress-yellow.svg?style=for-the-badge)
+
+![GitHub contributors](https://img.shields.io/github/contributors/vedantpuri/universale.svg?style=for-the-badge)  
+
+![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 
 # Universale
-A web app for college students to buy/sell items.Provides a simple, easy to use platform for students to find items/ services of interest.
-
+A web app exclusively for college students to buy/sell items.Provides a simple, easy to use platform for students to find items/services of interest.
+![Landing](resources/landing.png)
 ## Requirements
 - Python >= 3
 - Django >= 2.0.2
@@ -15,7 +18,7 @@ To get the project up and running follow the steps below:
 ### Step 1
 Navigate to the application.
 ```bash
-$ cd $PROJECT_ROOT/CS326TeamH
+$ cd $PROJECT_ROOT/Django
 ```
 ### Step 2
 Start the server
@@ -32,10 +35,6 @@ Open a browser and go to the following address:
 - Flag/Un-flag an item
 - Search for items
 - Edit your profile
-
-## Purpose
-Being a college student, there is always a time when one needs to get rid of their previous course books or furniture and make money off of them. Most students would be aware of facebook groups for doing this. But what if someone in another college nearby gave you a better deal on that calculus textbook, or was offering a wooden shelf for free, or a table fan for rent ? What if someone wasn't on facebook for some reason and had the desire to sell and buy products without burning a hole in his/her pocket? Keeping all this in mind, we came up with a common solution : A web app for college students exclusively. It doesn't end there, it may not necessarily be a material object, could be tutoring sessions, dancing lessons, driving tutorials and so much more! The possibilities are endless!
-
 
 ## License
 The project is available under the **MIT** license. See the [license](https://github.com/vedantpuri/universale/blob/master/LICENSE) file for more informations.
