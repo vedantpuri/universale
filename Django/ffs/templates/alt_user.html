@@ -25,31 +25,31 @@
     <div class="col-8 text-center">
       <div class="row">
         <div class="col-12 text-center">
-          <img class="user-image" src={{image.url}}>
+          {% if alt_user.image %}
+            <img class="user-image" src="{{ alt_user.image.url }}">
+          {% else %}
+            <img class="user-image" src="{% static 'img/defaultphoto.jpg'%}">
+          {% endif %}
         </div>
         <br>
         <div class="col-12">
-          <h1 id="name">{{fname}} {{lname}}</h1>
-          <h2 id="college">{{ college }}</h2>
+          <h1 id="name">{{ alt_user.first_name }} {{ alt_user.last_name }}</h1>
+          <h2 id="college">{{ alt_user.get_college_display }}</h2>
         </div>
         <br>
         <div class="col-3">
           Items for Sale
           <br>
-          <a href="#count_target">{{ count }}</a>
+          <a href="#count_target">{{ alt_user.product_set.all.count }}</a>
         </div>
         <div class="col-3">
           Rating
           <br>
           <script>
-          var star = {{ star }};
+          var star = {{ alt_user.star_count }};
           for(i = 1; i <=5; i++){
-            if(star > i){
-              document.write("★");
-            }
-            else{
-              document.write("✩");
-            }
+            if(star >= i) document.write("★");
+            else document.write("✩");
           }
           </script>
         </div>
@@ -57,25 +57,25 @@
           <a href="http://facebook.com/jakerocheleau" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/facebook_icon.png' %}" alt="@jakerocheleau"></a>
         </div>
         <div class="col-3">
-          <a href="mailto:{{email}}" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/mail.png' %}" alt="@jakerocheleau"></a>
+          <a href="mailto:{{ alt_user.email }}" rel="me" target="_blank"><img id="fbimg" src="{% static 'img/mail.png' %}" alt="@jakerocheleau"></a>
           <!-- target to when user clicks on the count in the top bar. Hope to show products when clicked -->
           <a name="count_target"></a>
         </div>
         <div class='col-12'>
           <hr>
           <h2>About me</h2>
-          <text>{{bio}}</text>
+          <text>{{ alt_user.bio }}</text>
           <br>
           <hr>
         </div>
       </div>
       <h2>Products for Sale</h2>
-      {% for product, flag in products reversed %}
+      {% for product in alt_user.product_set.all reversed %}
       <div class="row">
         <div class="col-md-7">
           <a href="#">
             {%if product.image %}
-              <img class="img-fluid rounded mb-3 mb-md-0" src={{product.image.url}} alt="">
+              <img class="img-fluid rounded mb-3 mb-md-0" src="{{ product.image.url }}" alt="">
             {%else%}
               <img class="img-fluid rounded mb-3 mb-md-0" src="{% static 'img/noimage.png' %}" alt="">
             {% endif %}
@@ -83,10 +83,10 @@
         </div>
         <div class="col-md-5">
           <h5><i>{{ product.title }}</i></h5>
-          <p>{{product.description}}<br><br>
-            Price: ${{product.price}} <br>
+          <p>{{ product.description }}<br><br>
+            Price: ${{ product.price }} <br>
           </p>
-          <p><red>{{ flag }}</red> Flagged</p>
+          <p><red>{{ product.flag_count }}</red> User(s) flagged this item.</p>
         </div>
       </div>
       <hr>

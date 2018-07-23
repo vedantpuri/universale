@@ -12,6 +12,7 @@ class Product(models.Model):
         ('s', 'Sold'),
     )
     status = models.CharField(max_length=1, choices=Availability, blank=True, default='a', help_text='Item availability')
+    flag_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
