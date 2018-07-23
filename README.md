@@ -1,11 +1,10 @@
 ![Header](resources/hero.png)
 
-![GitHub contributors](https://img.shields.io/github/contributors/vedantpuri/universale.svg?style=for-the-badge)  
-
-![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
+![GitHub contributors](https://img.shields.io/github/contributors/vedantpuri/universale.svg) ![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 
 # Universale
-A web app exclusively for college students to buy/sell items.Provides a simple, easy to use platform for students to find items/services of interest.
+A web app exclusively for college students to buy/sell items.Provides a simple, easy to use platform for students to find items/services of interest.  
+
 ![Landing](resources/landing.png)
 ## Requirements
 - Python >= 3
