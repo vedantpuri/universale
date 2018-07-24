@@ -36,4 +36,4 @@ Open a browser and go to the following address:
 - Edit your profile
 
 ## License
-The project is available under the **MIT** license. See the [license](https://github.com/vedantpuri/universale/blob/master/LICENSE) file for more informations.
+The project is available under the **MIT** license. See the [license](https://github.com/vedantpuri/universale/blob/master/LICENSE.md) file for more informations.
