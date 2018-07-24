@@ -129,3 +129,10 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
+ALLOWED_IMAGE_TYPES = [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif"
+]

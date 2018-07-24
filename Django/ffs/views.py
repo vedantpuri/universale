@@ -7,6 +7,8 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
+from django.conf import settings
+import os
 
 def landing_view(request):
  	return render(request, 'landing-page.html', context={})
@@ -109,22 +111,25 @@ from .forms import SignUpForm
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST, request.FILES)
-        if form.is_valid():
-        	user = form.save()
-        	username = form.cleaned_data.get('username')
-        	password = form.cleaned_data.get('password1')
-        	student = Student(django_user=user,
-        		first_name=form.cleaned_data.get('first_name'),
-        		last_name=form.cleaned_data.get('last_name'),
-        		bio=form.cleaned_data.get('bio'),
-        		college = form.cleaned_data.get('college'),
-        		email = form.cleaned_data.get('username'),
-        		star_count = 0,
-        		image = request.FILES.get('image')
-        		)
-        	student.save()
-        	login(request, user)
-        	return render(request, 'landing-page.html', context={})
+        print(settings.ALLOWED_IMAGE_TYPES)
+        if (request.FILES.get('image') != None):
+            if (os.path.splitext(request.FILES['image'].name)[1] in settings.ALLOWED_IMAGE_TYPES):
+                if form.is_valid():
+                    user = form.save()
+                    username = form.cleaned_data.get('username')
+                    password = form.cleaned_data.get('password1')
+                    student = Student(django_user=user,
+                        first_name=form.cleaned_data.get('first_name'),
+                        last_name=form.cleaned_data.get('last_name'),
+                        bio=form.cleaned_data.get('bio'),
+                        college = form.cleaned_data.get('college'),
+                        email = form.cleaned_data.get('username'),
+                        star_count = 0,
+                        image = request.FILES.get('image')
+                    )
+                    student.save()
+                    login(request, user)
+                    return render(request, 'landing-page.html', context={})
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})

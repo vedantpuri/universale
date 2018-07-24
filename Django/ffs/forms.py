@@ -39,7 +39,7 @@ class SignUpForm(UserCreationForm):
         ('h', 'Hamshire College'),
     )
     college = forms.ChoiceField(choices=College,widget=forms.Select(attrs={'class' : 'form-control'}))
-    image = forms.FileField(required=False, widget=forms.FileInput(attrs={'class' : 'form-control'}))
+    image = forms.FileField(required=False, widget=forms.FileInput(attrs={'class' : 'form-control', 'accept': 'image/*'}))
     username = forms.EmailField(label='Email', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your email'}))
     password1=forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
     password2=forms.CharField(label='Confirm Password', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Re-type your password'}))
