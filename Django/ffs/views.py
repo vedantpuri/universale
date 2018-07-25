@@ -20,17 +20,35 @@ def search_view(request):
 	queryset = Product.objects.filter(title__icontains=query)
 	pages = (((len(queryset) - (len(queryset) % settings.MAX_PAGE_ITEMS)) / settings.MAX_PAGE_ITEMS) + 1) if (len(queryset) > settings.MAX_PAGE_ITEMS) else 1
 	pages = range(1, int(pages) + 1)
-	queryset = queryset[(currPage - 1) * settings.MAX_PAGE_ITEMS:((currPage * settings.MAX_PAGE_ITEMS)) if (((currPage * settings.MAX_PAGE_ITEMS)+settings.MAX_PAGE_ITEMS) < len(queryset)) else len(queryset)]
+	queryset = queryset[(currPage - 1) * settings.MAX_PAGE_ITEMS:((currPage * settings.MAX_PAGE_ITEMS)) if (((currPage * settings.MAX_PAGE_ITEMS)) < len(queryset)) else len(queryset)]
 	context = { 'results': queryset, 'entered_text': query, 'pages': pages, 'currPage': currPage}
 	return render(request, 'search_result_page.html', context)
 
 @login_required(login_url="/accounts/login/")
 def flagged_view(request):
 	items = Flag.objects.filter(user=request.user.student)
+	currPage = request.GET.get("page", 1)
+	query = request.GET.get("qq", "")
+	currPage = int(currPage)
 	lst = []
 	for item in items:
 		lst += [j for j in item.products.all()]
-	return render(request, 'flagged_items_page.html', { 'flagged_items' : lst })
+	newlst = []
+	for item in lst:
+		if query.lower() in item.title.lower():
+			newlst.append(item)
+		elif query == "":
+			newlst.append(item)
+	lst = newlst
+	pages = (((len(lst) - (len(lst) % settings.MAX_PAGE_ITEMS)) / settings.MAX_PAGE_ITEMS) + 1) if (len(lst) > settings.MAX_PAGE_ITEMS) else 1
+	pages = range(1, int(pages) + 1)
+	lst = lst[(currPage - 1) * settings.MAX_PAGE_ITEMS:((currPage * settings.MAX_PAGE_ITEMS)) if (((currPage * settings.MAX_PAGE_ITEMS)) < len(lst)) else len(lst)]
+	context = {
+		'flagged_items' : lst,
+		'pages': pages,
+		'currPage': currPage
+	}
+	return render(request, 'flagged_items_page.html', context)
 
 @csrf_exempt
 @login_required(login_url="/accounts/login/")
