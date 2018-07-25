@@ -66,30 +66,33 @@
 
       <!-- Pagination -->
       <ul class="pagination justify-content-center">
+        {% if currPage > 1 %}
         <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
+          <a class="page-link" href="#" onclick="setGetParameter('page', '{{ currPage|add:'-1' }}')" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             <span class="sr-only">Previous</span>
           </a>
         </li>
+        {% endif %}
+        {% for n in pages %}
+          {% if n == currPage %}
+            <li class="page-item active">
+              <a class="page-link" href="#" onclick="setGetParameter('page', '{{ n }}')">{{ n }}</a>
+            </li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="#" onclick="setGetParameter('page', '{{ n }}')">{{ n }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        {% if currPage < pages|length %}
         <li class="page-item">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">4</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
+          <a class="page-link" href="#" onclick="setGetParameter('page', '{{ currPage|add:'1' }}')" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>
         </li>
+        {% endif %}
       </ul>
     </div>
   </div>
@@ -107,4 +110,28 @@
 
 {% block footer %}
 <footer id="foot" class="py-5 bg-dark" style="position:static;bottom:0;width:100%">
+<script>
+function setGetParameter(paramName, paramValue)
+  {
+      var url = window.location.href;
+      var hash = location.hash;
+      url = url.replace(hash, '');
+      if (url.indexOf(paramName + "=") >= 0)
+      {
+          var prefix = url.substring(0, url.indexOf(paramName));
+          var suffix = url.substring(url.indexOf(paramName));
+          suffix = suffix.substring(suffix.indexOf("=") + 1);
+          suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
+          url = prefix + paramName + "=" + paramValue + suffix;
+      }
+      else
+      {
+      if (url.indexOf("?") < 0)
+          url += "?" + paramName + "=" + paramValue;
+      else
+          url += "&" + paramName + "=" + paramValue;
+      }
+      window.location.href = url + hash;
+  }
+</script>
 {% endblock %}

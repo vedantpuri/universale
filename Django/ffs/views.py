@@ -15,8 +15,13 @@ def landing_view(request):
 
 def search_view(request):
 	query = request.GET.get("q")
+	currPage = request.GET.get("page", 1)
+	currPage = int(currPage)
 	queryset = Product.objects.filter(title__icontains=query)
-	context = { 'results': queryset, 'entered_text': query }
+	pages = (((len(queryset) - (len(queryset) % settings.MAX_PAGE_ITEMS)) / settings.MAX_PAGE_ITEMS) + 1) if (len(queryset) > settings.MAX_PAGE_ITEMS) else 1
+	pages = range(1, int(pages) + 1)
+	queryset = queryset[(currPage - 1) * settings.MAX_PAGE_ITEMS:((currPage * settings.MAX_PAGE_ITEMS)) if (((currPage * settings.MAX_PAGE_ITEMS)+settings.MAX_PAGE_ITEMS) < len(queryset)) else len(queryset)]
+	context = { 'results': queryset, 'entered_text': query, 'pages': pages, 'currPage': currPage}
 	return render(request, 'search_result_page.html', context)
 
 @login_required(login_url="/accounts/login/")
