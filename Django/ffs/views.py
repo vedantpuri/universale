@@ -116,7 +116,6 @@ from .forms import SignUpForm
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST, request.FILES)
-        print(settings.ALLOWED_IMAGE_TYPES)
         if (request.FILES.get('image') != None):
             if (os.path.splitext(request.FILES['image'].name)[1] in settings.ALLOWED_IMAGE_TYPES):
                 if form.is_valid():
