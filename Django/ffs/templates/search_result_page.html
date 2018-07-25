@@ -66,7 +66,7 @@
 
       <!-- Pagination -->
       <ul class="pagination justify-content-center">
-        {% if currPage > pages|length %}
+        {% if currPage > 1 %}
         <li class="page-item">
           <a class="page-link" href="#" onclick="setGetParameter('page', '{{ currPage|add:'-1' }}')" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
