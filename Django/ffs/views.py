@@ -19,7 +19,7 @@ def search_view(request):
 	currPage = int(currPage)
 	queryset = Product.objects.filter(title__icontains=query)
 	pages = (((len(queryset) - (len(queryset) % settings.MAX_PAGE_ITEMS)) / settings.MAX_PAGE_ITEMS) + 1) if (len(queryset) > settings.MAX_PAGE_ITEMS) else 1
-	pages = range(1, int(pages)+1)
+	pages = range(1, int(pages))
 	queryset = queryset[currPage * settings.MAX_PAGE_ITEMS:((currPage * settings.MAX_PAGE_ITEMS)+settings.MAX_PAGE_ITEMS) if (((currPage * settings.MAX_PAGE_ITEMS)+settings.MAX_PAGE_ITEMS) < len(queryset)) else len(queryset)]
 	context = { 'results': queryset, 'entered_text': query, 'pages': pages, 'currPage': currPage}
 	return render(request, 'search_result_page.html', context)
