@@ -7,10 +7,21 @@ A web app exclusively for college students to buy/sell items.Provides a simple, 
 
 ![Landing](resources/landing.png)
 
-## Setting up development
+## Requirements
+- Python >= 3
+- Django >= 2.0.2
+- Django widget tweaks
 
+It is suggested that you create a virtual environment to install the dependencies.
+
+Once you have downloaded the repo, you could also install these requirements using the following command:
+```bash
+pip3 install -r resources/requirements.txt
+```
+**Note:** Execute the above command from the root of the repo.
+
+## Usage
 To get the project up and running follow the steps below:
-
 
 ### Step 1
 Navigate to the application.
@@ -19,16 +30,12 @@ $ cd $PROJECT_ROOT/Django
 ```
 
 ### Step 2
-
-1. Create a virtual environmnet to install the dependencies.
-2. Run to install  requirements for the project: `pip3 install -r requirements/requirements.txt`
-
-### Step 3
 Start the server
 ```bash
 $ python3 manage.py runserver
 ```
-### Step 4
+
+### Step 3
 Open a browser and go to the following address:
 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
