@@ -6,25 +6,29 @@
 A web app exclusively for college students to buy/sell items.Provides a simple, easy to use platform for students to find items/services of interest.  
 
 ![Landing](resources/landing.png)
-## Requirements
-- Python >= 3
-- Django >= 2.0.2
-- Django widget tweaks ***(pip3 install django-widget-tweaks)***
 
-## Setup
+## Setting up development
+
 To get the project up and running follow the steps below:
+
 
 ### Step 1
 Navigate to the application.
 ```bash
 $ cd $PROJECT_ROOT/Django
 ```
+
 ### Step 2
+
+1. Create a virtual environmnet to install the dependencies.
+2. Run to install  requirements for the project: `pip3 install -r requirements/requirements.txt`
+
+### Step 3
 Start the server
 ```bash
 $ python3 manage.py runserver
 ```
-### Step 3
+### Step 4
 Open a browser and go to the following address:
 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
