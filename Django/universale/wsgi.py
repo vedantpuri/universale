@@ -1,5 +1,5 @@
 """
-WSGI config for CS326TeamH project.
+WSGI config for universale project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
